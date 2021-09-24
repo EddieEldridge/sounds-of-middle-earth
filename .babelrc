@@ -5,7 +5,10 @@
       "@babel/preset-typescript"
     ],
     "plugins": [
-      "react-hot-loader/babel"
+      "react-hot-loader/babel",
+      ["babel-plugin-dotenv", {
+        "replacedModuleName": "babel-dotenv"
+     }]
     ],
     "env": {
       "production": {

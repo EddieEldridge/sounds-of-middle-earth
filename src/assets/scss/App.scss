@@ -1,13 +1,27 @@
-$bg-color: rgb(255, 255, 255);
+$bg-color: rgb(0, 0, 0);
 $border-color: rgb(197, 197, 62);
 
 .app {
-  font-family: helvetica, arial, sans-serif;
-  padding: 2em;
   border: 5px solid $border-color;
   text-align: center;
+  background-color: $bg-color;
+  color: white;
+}
 
-  p {
-    background-color: $bg-color;
-  }
+
+
+.leaflet-container{
+  width: 100vw;
+  height: 100vh;
+  background: rgb(0, 0, 0);
+}
+
+.leaflet-popup-content-wrapper {
+  width: 50vw;
+  height: 50vh;
+}
+
+.lyt-activated {
+  width: 47vw;
+  height: 47vh;
 }

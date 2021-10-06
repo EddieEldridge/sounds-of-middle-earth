@@ -1,20 +1,24 @@
 {
-    "presets": [
-      "@babel/preset-env",
-      "@babel/preset-react",
-      "@babel/preset-typescript"
-    ],
-    "plugins": [
-      "react-hot-loader/babel",
-      ["babel-plugin-dotenv", {
+  "presets": [
+    "@babel/preset-env",
+    "@babel/preset-react",
+    "@babel/preset-typescript"
+  ],
+  "plugins": [
+    "react-hot-loader/babel",
+    [
+      "babel-plugin-dotenv",
+      {
         "replacedModuleName": "babel-dotenv"
-     }]
-    ],
-    "env": {
-      "production": {
-        "presets": [
-          "minify"
-        ]
       }
+    ],
+    ["@babel/transform-runtime"]
+  ],
+  "env": {
+    "production": {
+      "presets": [
+        "minify"
+      ]
     }
   }
+}

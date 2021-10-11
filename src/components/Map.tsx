@@ -21,26 +21,29 @@ export const LOTRMap = (props: any) => {
     }
 
     return (
-        <div id="mapid">
-            <MapContainer
-                center={[0, 0]}
-                whenCreated={setMapReference}
-                minZoom={-5}
-                crs={CRS.Simple}>
-                <ImageOverlay
-                    url="https://i.pinimg.com/originals/bc/59/91/bc5991a551a011777e72aefa7e914ba8.jpg"
-                    bounds={mapBounds}
-                    zIndex={-1}
-                />
-                <Marker position={[430.505, 1150.09]}>
-                    <Popup>
-                        <LiteYouTubeEmbed
-                            id="_o7gHiAIYkA"
-                            title="LOTRO | House of Healing Music And Ambience | Minas Tirith"
-                        />
-                    </Popup>
-                </Marker>
-            </MapContainer>
+        <div id='mainMap'>
+            <div id="mapid">
+                <MapContainer
+                    center={[0, 0]}
+                    whenCreated={setMapReference}
+                    minZoom={-5}
+                    crs={CRS.Simple}>
+                    <ImageOverlay
+                        url="https://i.pinimg.com/originals/bc/59/91/bc5991a551a011777e72aefa7e914ba8.jpg"
+                        bounds={mapBounds}
+                        zIndex={-1}
+                    />
+                    <Marker position={[430.505, 1150.09]}>
+                        <Popup>
+                            <LiteYouTubeEmbed
+                                id="_o7gHiAIYkA"
+                                title="LOTRO | House of Healing Music And Ambience | Minas Tirith"
+                                autoplay={true}
+                            />
+                        </Popup>
+                    </Marker>
+                </MapContainer>
+            </div>
         </div>
     );
 };

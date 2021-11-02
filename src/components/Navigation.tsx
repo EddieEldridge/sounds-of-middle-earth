@@ -1,9 +1,8 @@
-import React from "react"
-import { Container, Nav, Navbar } from "react-bootstrap"
+import React from 'react';
+import { Container, Nav, Navbar } from 'react-bootstrap';
 import './../assets/scss/App.scss';
 
 export const Navigation = (props: any) => {
-
     return (
         <Navbar fixed="top" id="bootstrapNavbar" bg="dark" variant="dark">
             <Container id="bootstrapNavBarContent">
@@ -19,6 +18,5 @@ export const Navigation = (props: any) => {
                 </Nav>
             </Container>
         </Navbar>
-    )
-}
-
+    );
+};

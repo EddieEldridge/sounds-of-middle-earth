@@ -1,24 +1,24 @@
-import { ImageOverlay, MapContainer, Marker, Popup, TileLayer } from 'react-leaflet';
-import { CRS, LatLng, latLng, LatLngBounds } from 'leaflet';
+import { ImageOverlay, MapContainer, Marker, Popup } from 'react-leaflet';
+import L, { CRS, LatLngBounds } from 'leaflet';
 import { useState } from 'react';
-import L from "leaflet";
 import './../assets/scss/App.scss';
 import LiteYouTubeEmbed from 'react-lite-youtube-embed';
-import 'react-lite-youtube-embed/dist/LiteYouTubeEmbed.css'
+import 'react-lite-youtube-embed/dist/LiteYouTubeEmbed.css';
 
 const mapBounds = new LatLngBounds([0, 0], [1500, 1800]);
 
 export const LOTRMap = (props: any) => {
-    const [map, setMap] = useState(undefined)
+    const [map, setMap] = useState(undefined);
     const [myMarkers, setMyMarkers] = useState(L.layerGroup());
 
+    // eslint-disable-next-line @typescript-eslint/no-shadow
     const setMapReference = (map) => {
         setMap(map);
 
         myMarkers.addTo(map);
-        setMyMarkers(myMarkers)
+        setMyMarkers(myMarkers);
         map.fitBounds(mapBounds);
-    }
+    };
 
     return (
         <div id='mainMap'>

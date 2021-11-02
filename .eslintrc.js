@@ -11,7 +11,9 @@ module.exports = {
     plugins: [
         '@typescript-eslint',
         'import',
-        'react-hooks'
+        'react-hooks',
+        'unused-imports',
+        'eslint-plugin-react'
     ],
     ignorePatterns: ['dist/', 'scripts/', 'node_modules/', 'venv/'],
     rules: {
@@ -109,6 +111,10 @@ module.exports = {
         'no-multiple-empty-lines': ['error', {
             max: 2
         }],
-        'padded-blocks': ['error', 'never']
+        'padded-blocks': ['error', 'never'],
+        'react/jsx-uses-react': 1,
+        'react/jsx-uses-vars': 1,
+        'unused-imports/no-unused-imports': 'error',
+        'eol-last':  ['error', 'never']
     }
 };

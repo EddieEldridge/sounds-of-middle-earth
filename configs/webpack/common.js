@@ -29,6 +29,12 @@ module.exports = {
           "image-webpack-loader?bypassOnDebug&optipng.optimizationLevel=7&gifsicle.interlaced=false",
         ],
       },
+      {
+        test: /\.(ttf)$/,
+        use: {
+          loader: 'url-loader',
+        },
+      },
     ],
   },
   plugins: [new HtmlWebpackPlugin({ template: "index.html.ejs" })],

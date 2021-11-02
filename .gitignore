@@ -7,4 +7,4 @@ tests/**/*.jsx
 .DS_STORE
 .env
 .terraform*
-.tfvars*
+terraform.tfvars

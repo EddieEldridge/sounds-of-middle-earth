@@ -2,7 +2,7 @@
 
 An interactive map of Tolkien's Middle-earth that provides you the songs and sounds of a particular region. 
 
-![Sounds of Middle Earth](https://i.pinimg.com/originals/bc/59/91/bc5991a551a011777e72aefa7e914ba8.jpg)
+![Sounds of Middle Earth](https://www.cartographersguild.com/attachment.php?attachmentid=105997&d=1522516837)
 
 
 ## Technologies

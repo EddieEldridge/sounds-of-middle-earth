@@ -3,13 +3,19 @@ import L, { CRS, LatLngBounds } from 'leaflet';
 import { useState } from 'react';
 import './../assets/scss/App.scss';
 import LiteYouTubeEmbed from 'react-lite-youtube-embed';
-import 'react-lite-youtube-embed/dist/LiteYouTubeEmbed.css';
 
-const mapBounds = new LatLngBounds([0, 0], [1500, 1800]);
+import 'react-lite-youtube-embed/dist/LiteYouTubeEmbed.css';
+import { MAP_URL, MAP_X, MAP_Y } from '../lib/constants';
+import { iconLOTR } from './Icon';
+import { getMapLocation } from '../lib/utils';
+import { MapLocation } from '../lib/interfaces';
+
+const mapBounds = new LatLngBounds([0, 0], [MAP_Y, MAP_X]);
 
 export const LOTRMap = (props: any) => {
     const [map, setMap] = useState(undefined);
     const [myMarkers, setMyMarkers] = useState(L.layerGroup());
+    const mapMarkers = getMapLocation();
 
     // eslint-disable-next-line @typescript-eslint/no-shadow
     const setMapReference = (map) => {
@@ -26,22 +32,27 @@ export const LOTRMap = (props: any) => {
                 <MapContainer
                     center={[0, 0]}
                     whenCreated={setMapReference}
-                    minZoom={-5}
+                    minZoom={-25}
                     crs={CRS.Simple}>
                     <ImageOverlay
-                        url="https://i.pinimg.com/originals/bc/59/91/bc5991a551a011777e72aefa7e914ba8.jpg"
+                        url={MAP_URL}
                         bounds={mapBounds}
                         zIndex={-1}
                     />
-                    <Marker position={[430.505, 1150.09]}>
-                        <Popup>
-                            <LiteYouTubeEmbed
-                                id="_o7gHiAIYkA"
-                                title="LOTRO | House of Healing Music And Ambience | Minas Tirith"
-                                autoplay={true}
-                            />
-                        </Popup>
-                    </Marker>
+                    {mapMarkers.map((marker: MapLocation) =>{
+                        return(
+                            <Marker icon={iconLOTR} position={marker.location}>
+                                <Popup>
+                                    <LiteYouTubeEmbed
+                                        id={marker.url}
+                                        title={marker.name}
+                                        autoplay={true}
+                                    />
+                                </Popup>
+                            </Marker>
+                        );
+                    })}
+
                 </MapContainer>
             </div>
         </div>

@@ -1,0 +1,18 @@
+{
+    "locations": [{
+        "name": "Minas Tirith - House of Healing",
+        "url": "_o7gHiAIYkA",
+        "location": [4390, 5045]
+    },
+    {
+        "name": "Barad Dur",
+        "url": "_o7gHiAIYkA",
+        "location": [1355.505, 1150.09]
+    },
+    {
+        "name": "Helms Deep",
+        "url": "_o7gHiAIYkA",
+        "location": [1231.505, 1150.09]
+    }
+]
+}

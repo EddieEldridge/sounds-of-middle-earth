@@ -9,7 +9,7 @@ jobs:
       - checkout
       - attach_workspace:
           at: ~/react-application
-      - run: npm ci
+      - run: npm install
       - run: npm run build
       - persist_to_workspace:
           root: .

@@ -17,7 +17,7 @@ jobs:
           - dist
   deploy:
     docker:
-      - image: circleci/golang:1.9.6
+      - image: circleci/golang:1.17.3
     parallelism: 1
     working_directory: ~/react-application
     steps:

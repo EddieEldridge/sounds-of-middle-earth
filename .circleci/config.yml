@@ -26,7 +26,7 @@ jobs:
         at: ~/react-application
     - restore_cache:
         key: v1-pkg-cache
-    - run: go get -v github.com/bep/s3deploy
+    - run:  go get -u -v github.com/bep/s3deploy/v2
     - save_cache:
         key: v1-pkg-cache
         paths:

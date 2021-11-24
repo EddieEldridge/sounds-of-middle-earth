@@ -1,0 +1,52 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/node:8.11.2
+    parallelism: 1
+    working_directory: ~/react-application
+  steps:
+    - checkout
+    - attach_workspace:
+        at: ~/react-application
+    - run: npm install
+    - run: npm build
+    - persist_to_workspace:
+        root: .
+        paths: dist
+  deploy:
+    docker:
+      - image: circleci/golang:1.9.6
+    parallelism: 1
+    working_directory: ~/react-application
+    steps:
+    - checkout
+    - attach_workspace:
+        at: ~/react-application
+    - restore_cache:
+        key: v1-pkg-cache
+    - run: go get -v github.com/bep/s3deploy
+    - save_cache:
+        key: v1-pkg-cache
+        paths:
+           - /go/pkg
+    - run:
+      name: Deploy to S3
+      command: |
+        s3deploy -source=dist/ -region=eu-west-1 -key=$PROD_AWS_ACCESS_KEY_ID -secret=$PROD_AWS_SECRET_ACCESS_KEY -distribution-id=$AWS_CLOUDFRONT_DISTRIBUTION_ID -bucket=$BUCKET_NAME
+workflows:
+  version: 2
+  build-and-deploy:
+    jobs:
+      - build:
+        filters:
+          branches:
+            only:
+              - master
+      - deploy:
+        requires:
+          - build
+            filters:
+              branches:
+                only:
+                  - master

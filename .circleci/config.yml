@@ -9,9 +9,8 @@ jobs:
       - checkout
       - attach_workspace:
           at: ~/react-application
-      - run: npm i npm@latest -g
-      - run: npm install
-      - run: npm build
+      - run: npm ci
+      - run: npm run build
       - persist_to_workspace:
           root: .
           paths: 

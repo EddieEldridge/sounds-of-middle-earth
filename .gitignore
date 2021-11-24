@@ -8,3 +8,5 @@ tests/**/*.jsx
 .env
 .terraform*
 terraform.tfvars
+.vscode
+terraform.tfstate*

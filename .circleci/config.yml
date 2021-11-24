@@ -17,7 +17,7 @@ jobs:
           - dist
   deploy:
     docker:
-      - image: circleci/golang:1.17.0
+      - image: circleci/golang:1.17.3
     parallelism: 1
     working_directory: ~/react-application
     steps:
@@ -26,7 +26,7 @@ jobs:
         at: ~/react-application
     - restore_cache:
         key: v1-pkg-cache
-    - run:  go get -u -v github.com/bep/s3deploy/v2
+    - run:  go get -v github.com/bep/s3deploy/v2
     - save_cache:
         key: v1-pkg-cache
         paths:

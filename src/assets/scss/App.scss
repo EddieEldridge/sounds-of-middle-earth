@@ -3,13 +3,10 @@ $bg-color: rgb(0, 0, 0);
 $border-color: rgb(0, 0, 0);
 
 // Fonts
-font-face {
+@font-face {
   font-family: 'Aniron';
-  font-style: normal;
-  font-weight: normal;
   src:
-    url('../fonts/aniron.ttf') format('ttf'),
-    url('../fonts/aniron_bold.ttf') format('ttf');
+    url('../fonts/aniron.ttf') format('truetype'),
 }
 
 // Main App

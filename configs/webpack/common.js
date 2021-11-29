@@ -31,10 +31,11 @@ module.exports = {
                 ],
             },
             {
-                test: /\.(ttf)$/,
-                use: {
-                    loader: 'url-loader',
-                },
+                test: /\.(woff(2)?|ttf|eot)$/,
+                type: 'asset/resource',
+                generator: {
+                    filename: './assets/fonts/[name][ext]',
+                }
             },
         ],
     },

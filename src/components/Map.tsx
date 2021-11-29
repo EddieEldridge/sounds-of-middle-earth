@@ -28,7 +28,7 @@ export const LOTRMap = (props: any) => {
 
     return (
         <div id='mainMap'>
-            <div id="mapid">
+            <div id="mapContainer">
                 <MapContainer
                     center={[0, 0]}
                     whenCreated={setMapReference}

@@ -77,11 +77,12 @@
     "webpack-merge": "^5.8.0"
   },
   "dependencies": {
+    "@ant-design/colors": "^6.0.0",
+    "@ant-design/icons": "^4.7.0",
     "@babel/runtime": "^7.15.4",
+    "antd": "^4.17.2",
     "babel-plugin-dotenv": "^0.1.1",
-    "bootstrap": "^5.1.1",
     "leaflet": "^1.7.1",
-    "react-bootstrap": "^2.0.0-rc.0",
     "react-image": "^4.0.3",
     "react-leaflet": "^3.2.1",
     "react-lite-youtube-embed": "^2.0.14-1",

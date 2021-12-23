@@ -1,19 +1,22 @@
 import { ImageOverlay, MapContainer, Marker, Popup } from 'react-leaflet';
 import L, { CRS, LatLngBounds } from 'leaflet';
-import { useState } from 'react';
-import './../assets/scss/App.scss';
+import { useEffect, useState } from 'react';
+import './../../assets/scss/App.scss';
 import LiteYouTubeEmbed from 'react-lite-youtube-embed';
 
 import 'react-lite-youtube-embed/dist/LiteYouTubeEmbed.css';
-import { MAP_URL, MAP_X, MAP_Y } from '../lib/constants';
-import { iconLOTR } from './Icon';
-import { getMapLocation } from '../lib/utils';
-import { MapLocation } from '../lib/interfaces';
+
+
+import { MAP_URL, MAP_X, MAP_Y } from '../../lib/constants';
+import { iconLOTR } from '../widgets/Icon';
+import { getMapLocation } from '../../lib/utils';
+import { MapLocation } from '../../lib/interfaces';
 
 const mapBounds = new LatLngBounds([0, 0], [MAP_Y, MAP_X]);
 
 export const LOTRMap = (props: any) => {
     const [map, setMap] = useState(undefined);
+    const [mapIsLoaded, setMapIsLoaded] = useState(false);
     const [myMarkers, setMyMarkers] = useState(L.layerGroup());
     const mapMarkers = getMapLocation();
 
@@ -37,10 +40,20 @@ export const LOTRMap = (props: any) => {
         map.on('click', onMapClick);
     };
 
+    useEffect(() => {
+        if(!mapIsLoaded) {
+        }
+    }, [mapIsLoaded]);
+
+    if(!mapIsLoaded) {
+        console.log('Map is loading...');
+    }
+
     return (
         <div id='mainMap'>
             <div id="mapContainer">
                 <MapContainer
+                    whenReady={() => setMapIsLoaded(true)}
                     center={[0, 0]}
                     whenCreated={setMapReference}
                     minZoom={-25}

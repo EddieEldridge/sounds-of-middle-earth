@@ -4,11 +4,11 @@ import './../assets/scss/App.scss';
 import { Route, Switch } from 'react-router-dom';
 import { Layout } from 'antd';
 
-import { LOTRMap } from './Map';
-import { About } from './About';
-import { Source } from './Source';
-import { Credits } from './Credits';
-import { Contribute } from './Contribute';
+import { LOTRMap } from './pages/Map';
+import { About } from './pages/About';
+import { Source } from './pages/Source';
+import { Credits } from './pages/Credits';
+import { Contribute } from './pages/Contribute';
 import { Navigation } from './Navigation';
 
 class App extends React.Component<Record<string, unknown>, undefined> {

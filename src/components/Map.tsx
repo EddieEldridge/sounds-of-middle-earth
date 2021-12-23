@@ -24,6 +24,17 @@ export const LOTRMap = (props: any) => {
         myMarkers.addTo(map);
         setMyMarkers(myMarkers);
         map.fitBounds(mapBounds);
+
+        // Getting map co-ordinates on click
+        const popup = L.popup();
+
+        function onMapClick(e) {
+            popup
+                .setLatLng(e.latlng)
+                .setContent('You clicked the map at ' + e.latlng.toString())
+                .openOn(map);
+        }
+        map.on('click', onMapClick);
     };
 
     return (
@@ -42,7 +53,7 @@ export const LOTRMap = (props: any) => {
                     {mapMarkers.map((marker: MapLocation) =>{
                         return(
                             <Marker icon={iconLOTR} position={marker.location}>
-                                <Popup>
+                                <Popup className='marker-popup'>
                                     <LiteYouTubeEmbed
                                         id={marker.url}
                                         title={marker.name}

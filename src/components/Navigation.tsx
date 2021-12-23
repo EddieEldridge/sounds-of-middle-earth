@@ -28,7 +28,7 @@ export const Navigation = (props: any) => {
     };
 
     return (
-        <Sider collapsible collapsed={collapsed} onCollapse={toggleMenu}>
+        <Sider collapsible collapsed={collapsed} onCollapse={toggleMenu} onMouseOver={toggleMenu} onMouseOut={toggleMenu}>
             <img src={theRing} className="website-logo"/>
             <Menu id="sideBar" theme="dark" defaultSelectedKeys={['1']} mode="inline">
                 <Menu.Item key="1" icon={<GlobalOutlined />}>

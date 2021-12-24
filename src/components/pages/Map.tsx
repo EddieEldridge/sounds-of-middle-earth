@@ -1,6 +1,6 @@
 import { ImageOverlay, MapContainer, Marker, Popup } from 'react-leaflet';
 import L, { CRS, LatLngBounds } from 'leaflet';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import './../../assets/scss/App.scss';
 import LiteYouTubeEmbed from 'react-lite-youtube-embed';
 
@@ -9,7 +9,8 @@ import 'react-lite-youtube-embed/dist/LiteYouTubeEmbed.css';
 
 import { MAP_URL, MAP_X, MAP_Y } from '../../lib/constants';
 import { iconLOTR } from '../widgets/Icon';
-import { getMapLocation } from '../../lib/utils';
+import { LotrSpinner } from '../widgets/Spinner';
+import { getMapLocation, log } from '../../lib/utils';
 import { MapLocation } from '../../lib/interfaces';
 
 const mapBounds = new LatLngBounds([0, 0], [MAP_Y, MAP_X]);
@@ -40,25 +41,33 @@ export const LOTRMap = (props: any) => {
         map.on('click', onMapClick);
     };
 
-    useEffect(() => {
+    const spinnerOverlay = () => {
         if(!mapIsLoaded) {
-        }
-    }, [mapIsLoaded]);
+            log('Loading map...', 'yellow');
 
-    if(!mapIsLoaded) {
-        console.log('Map is loading...');
-    }
+            return <LotrSpinner />;
+        }
+
+        log('Map is loaded...', 'green');
+    };
 
     return (
         <div id='mainMap'>
             <div id="mapContainer">
                 <MapContainer
-                    whenReady={() => setMapIsLoaded(true)}
                     center={[0, 0]}
                     whenCreated={setMapReference}
                     minZoom={-25}
                     crs={CRS.Simple}>
                     <ImageOverlay
+                        eventHandlers={{
+                            loading: (e) => {
+                                setMapIsLoaded(false);
+                            },
+                            load: (e) => {
+                                setMapIsLoaded(true);
+                            }
+                        }}
                         url={MAP_URL}
                         bounds={mapBounds}
                         zIndex={-1}
@@ -76,8 +85,8 @@ export const LOTRMap = (props: any) => {
                             </Marker>
                         );
                     })}
-
                 </MapContainer>
+                {spinnerOverlay()}
             </div>
         </div>
     );

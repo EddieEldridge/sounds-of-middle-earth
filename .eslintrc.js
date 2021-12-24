@@ -77,7 +77,6 @@ module.exports = {
         ],
         'no-bitwise': 'error',
         'no-caller': 'error',
-        'no-console': 'error',
         'no-empty-functions': 'off',
         'no-eval': 'error',
         'no-new': 'error',

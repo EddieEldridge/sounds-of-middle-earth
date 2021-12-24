@@ -1,5 +1,6 @@
 // shared config (dev and prod)
 const { resolve } = require('path');
+const path = require('path');
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
@@ -36,6 +37,11 @@ module.exports = {
                 generator: {
                     filename: './assets/fonts/[name][ext]',
                 }
+            },
+            {
+
+                test: /\.less$/,
+                use: ['style-loader', 'css-loader', { loader: 'less-loader', options: { lessOptions: { javascriptEnabled: true } } }],
             },
         ],
     },

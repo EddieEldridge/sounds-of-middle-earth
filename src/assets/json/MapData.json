@@ -13,6 +13,96 @@
         "name": "Argonath",
         "url": "DngL9FJUztI",
         "location": [2006.710938, 4979.78125]
+    },
+    {
+        "name": "Bree (Night)",
+        "url": "7a6nbSgH7rk",
+        "location": [3937, 2901]
+    },
+    {
+        "name": "The Prancing Pony",
+        "url": "ym0LnYzu3jY",
+        "location": [3915, 2933]
+    },
+    {
+        "name": "Celondim",
+        "url": "hvs-qqnIxuU",
+        "location": [4196, 1778]
+    },
+    {
+        "name": "Rain in the Trollshaws",
+        "url": "mOJgKDPa5Ac",
+        "location": [4259, 4019]
+    },
+    {
+        "name": "Evendim",
+        "url": "eC4AzyL-3jQ",
+        "location": [4363, 2349]
+    },
+    {
+        "name": "Bree (Day)",
+        "url": "XIYtTE3-L-M",
+        "location": [3886, 2907]
+    },
+    {
+        "name": "Thorin's Hall",
+        "url": "nSb2JSYb6Ng",
+        "location": [3886, 2907]
+    },
+    {
+        "name": "Tom Bombadil's House",
+        "url": "KwxwwNtiWc4",
+        "location": [3670, 3194]
+    },
+    {
+        "name": "Storm in the Shire",
+        "url": "2NmmzfkM2no",
+        "location": [3740, 2452]
+    },
+    {
+        "name": "Lothlórien (Night)",
+        "url": "HSm7fcWrBfs",
+        "location": [3173, 4445]
+    },
+    {
+        "name": "Dol Amroth",
+        "url": "ci0s2F7tSyc",
+        "location": [935, 4048]
+    },
+    {
+        "name": "Last Homely House",
+        "url": "YVllYhdDjxE",
+        "location": [4044, 4208]
+    },
+    {
+        "name": "Blackroot Vale",
+        "url": "GftvKVWNoUU",
+        "location": [1575, 4248]
+    },
+    {
+        "name": "Amon Raith",
+        "url": "aPKWrVwNRMA",
+        "location": [4178, 2941]
+    },
+    {
+        "name": "Inside Tom Bombadil's House",
+        "url": "QHfJp385LHg",
+        "location": [3654, 3157]
+    },
+    {
+        "name": "Galadriel's Garden",
+        "url": "M-C8jqwTUhk",
+        "location": [2993.5, 4527.5]
+    },
+    {
+        "name": "Cape of Belfalas Music (Sunset)",
+        "url": "yHP-OdhmwUw",
+        "location": [564, 4282]
+    },
+    {
+        "name": "Western Gondor",
+        "url": "KAdO7JgbchU",
+        "location": [1376, 3348]
     }
 ]
 }

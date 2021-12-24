@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { hot } from 'react-hot-loader';
 import './../assets/scss/App.scss';
+import '../assets/less/theme.less';
 import { Route, Switch } from 'react-router-dom';
 import { Layout } from 'antd';
 

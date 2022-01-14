@@ -10,6 +10,7 @@ import {
     GlobalOutlined,
     HeartOutlined,
 } from '@ant-design/icons';
+import { Link } from 'react-router-dom';
 
 import theRing from '../assets/img/LOTRIcon.png';
 
@@ -18,6 +19,7 @@ const { Sider } = Layout;
 
 export const Navigation = (props: any) => {
     const [collapsed, toggleCollapsed] = useState(true);
+    const [selectedKeys, setSelectedKeys] = useState(['map']);
 
     const toggleMenu = () => {
         if(collapsed) {
@@ -30,26 +32,36 @@ export const Navigation = (props: any) => {
     return (
         <Sider collapsible collapsed={collapsed} onCollapse={toggleMenu} onMouseOver={toggleMenu} onMouseOut={toggleMenu}>
             <img src={theRing} className="website-logo"/>
-            <Menu id="sideBar" theme="dark" defaultSelectedKeys={['1']} mode="inline">
-                <Menu.Item key="1" icon={<GlobalOutlined />}>
-                    <a href="Home">
+            <Menu
+                id="sideBar"
+                selectedKeys={selectedKeys}
+                theme="dark"
+                mode="inline"
+                onClick={
+                    (menuItem) => {
+                        setSelectedKeys([menuItem.key]);
+                    }
+                }
+            >
+                <Menu.Item key="map" icon={<GlobalOutlined />}>
+                    <Link to="Home">
                         Map
-                    </a>
+                    </Link>
                 </Menu.Item>
-                <Menu.Item key="2" icon={<HeartOutlined />}>
-                    <a href="Credits">
+                <Menu.Item key="credits" icon={<HeartOutlined />}>
+                    <Link to="Credits">
                         Credits
-                    </a>
+                    </Link>
                 </Menu.Item>
-                <Menu.Item key="3" icon={<BranchesOutlined />}>
-                    <a href="Code">
-                        Code
-                    </a>
+                <Menu.Item key="code" icon={<BranchesOutlined />}>
+                    <Link to="Source">
+                        Source
+                    </Link>
                 </Menu.Item>
-                <Menu.Item key="4" icon={<FileOutlined />}>
-                    <a href="About">
+                <Menu.Item key="about" icon={<FileOutlined />}>
+                    <Link to="About">
                         About
-                    </a>
+                    </Link>
                 </Menu.Item>
             </Menu>
         </Sider>

@@ -1,3 +1,35 @@
+$header-color: 205, 154, 1, 0.3;
+
+@font-face {
+    font-family: 'Aniron';
+    src:
+      url('../fonts/aniron.ttf') format('truetype'),
+}
+
 .layout {
-    display: block;
+    display: flex;
+    width: 100vw;
+    text-align: center;
+}
+
+.header {
+    width: 100%;
+    align-content: center;
+    font-size: large;
+    background-color: $header-color;
+    font-family: 'Aniron', sans-serif;
+}
+
+.content {
+    width: 100%;
+    align-content: center;
+    font-size: medium;
+    background-color: grey;
+}
+
+.footer {
+    width: 100%;
+    align-content: center;
+    font-size: small;
+    background-color: rgb(105, 68, 0);
 }

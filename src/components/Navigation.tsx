@@ -5,8 +5,8 @@ import React, { useState } from 'react';
 import './../assets/scss/App.scss';
 
 import {
+    ApartmentOutlined,
     BranchesOutlined,
-    FileOutlined,
     GlobalOutlined,
     HeartOutlined,
 } from '@ant-design/icons';
@@ -58,7 +58,7 @@ export const Navigation = (props: any) => {
                         Source
                     </Link>
                 </Menu.Item>
-                <Menu.Item key="about" icon={<FileOutlined />}>
+                <Menu.Item key="about" icon={<ApartmentOutlined />}>
                     <Link to="About">
                         About
                     </Link>

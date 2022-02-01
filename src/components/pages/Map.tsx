@@ -57,6 +57,7 @@ export const LOTRMap = (props: any) => {
                 <MapContainer
                     center={[0, 0]}
                     whenCreated={setMapReference}
+                    whenReady={async () => await setMapIsLoaded(true)}
                     minZoom={-25}
                     crs={CRS.Simple}>
                     <ImageOverlay

@@ -12,7 +12,7 @@ export async function publishMessage(message: string) {
     };
 
     try {
-        // const data = await snsClient.send(new PublishCommand(snsParams));
+        const data = await snsClient.send(new PublishCommand(snsParams));
 
         log(`Publishing SNS message: ${message}`, 'green');
     } catch (error) {

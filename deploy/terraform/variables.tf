@@ -18,3 +18,9 @@ variable "secret_access_key" {
   sensitive = true
   description = "AWS Secret Access Key"
 }
+
+variable "my_phone_number" {
+  type = string
+  sensitive = true
+  description = "My phone number to send SNS messages to"
+}

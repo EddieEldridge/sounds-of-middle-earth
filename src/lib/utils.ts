@@ -28,3 +28,11 @@ export function log(message: string, colour?: string) {
             break;
     }
 }
+
+export function getXyCoords(latLngString: string): string {
+    try {
+        return latLngString.match(/\(([^)]+)\)/)[1];
+    } catch (error) {
+        log(error, 'red');
+    }
+}

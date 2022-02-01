@@ -1,0 +1,18 @@
+@use 'Colors' as colors;
+
+.content {
+    background-color: #031B1F;
+    text-align: center;
+    align-content: center;
+    padding-left: 25vw;
+}
+
+.feedbackForm {
+    padding-top: 20px;
+    background-color: #031B1F;
+    border-style: 5px solid black;
+}
+
+.feedbackSubmit {
+    padding-bottom: 10px;
+}

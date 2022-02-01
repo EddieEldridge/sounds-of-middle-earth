@@ -5,10 +5,10 @@ import React, { useState } from 'react';
 import './../assets/scss/App.scss';
 
 import {
-    ApartmentOutlined,
     BranchesOutlined,
     GlobalOutlined,
     HeartOutlined,
+    MailOutlined,
 } from '@ant-design/icons';
 import { Link } from 'react-router-dom';
 
@@ -58,9 +58,9 @@ export const Navigation = (props: any) => {
                         Source
                     </Link>
                 </Menu.Item>
-                <Menu.Item key="about" icon={<ApartmentOutlined />}>
-                    <Link to="About">
-                        About
+                <Menu.Item key="feedback" icon={<MailOutlined />}>
+                    <Link to="Feedback">
+                        Feedback
                     </Link>
                 </Menu.Item>
             </Menu>

@@ -82,6 +82,7 @@
     "@ant-design/colors": "^6.0.0",
     "@ant-design/dark-theme": "^2.0.2",
     "@ant-design/icons": "^4.7.0",
+    "@aws-sdk/client-sns": "^3.49.0",
     "@babel/runtime": "^7.15.4",
     "antd": "^4.17.2",
     "babel-plugin-dotenv": "^0.1.1",

@@ -10,7 +10,7 @@ import 'react-lite-youtube-embed/dist/LiteYouTubeEmbed.css';
 import { MAP_URL, MAP_X, MAP_Y } from '../../lib/constants';
 import { iconLOTR } from '../widgets/Icon';
 import { LotrSpinner } from '../widgets/Spinner';
-import { getMapLocation, log } from '../../lib/utils';
+import { getMapLocation, getXyCoords, log } from '../../lib/utils';
 import { MapLocation } from '../../lib/interfaces';
 
 const mapBounds = new LatLngBounds([0, 0], [MAP_Y, MAP_X]);
@@ -35,7 +35,9 @@ export const LOTRMap = (props: any) => {
         function onMapClick(e) {
             popup
                 .setLatLng(e.latlng)
-                .setContent('You clicked the map at ' + e.latlng.toString())
+                .setContent(`
+                You clicked the map at ${getXyCoords(e.latlng.toString())}
+                `)
                 .openOn(map);
         }
         map.on('click', onMapClick);

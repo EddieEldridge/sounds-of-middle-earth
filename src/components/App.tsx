@@ -6,7 +6,7 @@ import { Route, Switch } from 'react-router-dom';
 import { Layout } from 'antd';
 
 import { LOTRMap } from './pages/Map';
-import { About } from './pages/About';
+import { Feedback } from './pages/Feedback';
 import { Source } from './pages/Source';
 import { Credits } from './pages/Credits';
 import { Contribute } from './pages/Contribute';
@@ -23,7 +23,7 @@ class App extends React.Component<Record<string, unknown>, undefined> {
                             <Switch>
                                 <Route exact path='/' component={LOTRMap} />
                                 <Route path='/home' component={LOTRMap} />
-                                <Route path='/about' component={About} />
+                                <Route path='/feedback' component={Feedback} />
                                 <Route path='/source' component={Source} />
                                 <Route path='/credits' component={Credits} />
                                 <Route path='/contribute' component={Contribute} />

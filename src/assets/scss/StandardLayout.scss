@@ -14,14 +14,18 @@ $header-color: 205, 154, 1, 0.3;
 
 .header {
     width: 100%;
+    height: 10vh;
     align-content: center;
-    font-size: large;
+    font-size: 32px;
     background-color: $header-color;
     font-family: 'Aniron', sans-serif;
+    padding-top: 10px;
+    background-color: black;
 }
 
 .content {
     width: 100%;
+    height: 80vh;
     align-content: center;
     font-size: medium;
     background-color: grey;
@@ -29,7 +33,8 @@ $header-color: 205, 154, 1, 0.3;
 
 .footer {
     width: 100%;
+    height: 10vh;
     align-content: center;
     font-size: small;
-    background-color: rgb(105, 68, 0);
+    background-color: rgb(189, 123, 0);
 }

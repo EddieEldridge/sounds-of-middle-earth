@@ -44,22 +44,22 @@ export const Navigation = (props: any) => {
                 }
             >
                 <Menu.Item key="map" icon={<GlobalOutlined />}>
-                    <Link to="Home">
+                    <Link to="map">
                         Map
                     </Link>
                 </Menu.Item>
                 <Menu.Item key="credits" icon={<HeartOutlined />}>
-                    <Link to="Credits">
+                    <Link to="credits">
                         Credits
                     </Link>
                 </Menu.Item>
-                <Menu.Item key="code" icon={<BranchesOutlined />}>
-                    <Link to="Source">
+                <Menu.Item key="source" icon={<BranchesOutlined />}>
+                    <Link to="source">
                         Source
                     </Link>
                 </Menu.Item>
                 <Menu.Item key="feedback" icon={<MailOutlined />}>
-                    <Link to="Feedback">
+                    <Link to="feedback">
                         Feedback
                     </Link>
                 </Menu.Item>

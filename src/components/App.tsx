@@ -9,7 +9,6 @@ import { LOTRMap } from './pages/Map';
 import { Feedback } from './pages/Feedback';
 import { Source } from './pages/Source';
 import { Credits } from './pages/Credits';
-import { Contribute } from './pages/Contribute';
 import { Navigation } from './Navigation';
 
 class App extends React.Component<Record<string, unknown>, undefined> {
@@ -22,11 +21,10 @@ class App extends React.Component<Record<string, unknown>, undefined> {
                         <Layout className="site-layout">
                             <Switch>
                                 <Route exact path='/' component={LOTRMap} />
-                                <Route path='/home' component={LOTRMap} />
+                                <Route path='/map' component={LOTRMap} />
                                 <Route path='/feedback' component={Feedback} />
                                 <Route path='/source' component={Source} />
                                 <Route path='/credits' component={Credits} />
-                                <Route path='/contribute' component={Contribute} />
                             </Switch>
                         </Layout>
                     </div>

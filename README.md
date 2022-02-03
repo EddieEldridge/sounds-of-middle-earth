@@ -33,6 +33,11 @@ To build the project and run the dev server you can run
 
 
     ```localhost:8080```
+    
+ ## Contact
+ Feel free to get in touch!
+ - Discord (**Medik#0001**) 
+ - Email (**eddie.eldridge@hotmail.com**)
 
 ## Credits
 #### Music

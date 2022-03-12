@@ -103,6 +103,71 @@
         "name": "Western Gondor",
         "url": "KAdO7JgbchU",
         "location": [1376, 3348]
+    },
+    {
+        "name": "Lake-Town",
+        "url": "MdoKubHbTKI&",
+        "location": [4330, 5658]
+    },
+    {
+        "name": "Erebor",
+        "url": "14NQO35mpPo",
+        "location": [4558, 5638]
+    },
+    {
+        "name": "Moria",
+        "url": "Or2QHt7BEgI",
+        "location": [3466, 4170]
+    },
+    {
+        "name": "Rohan",
+        "url": "LUO5qhpD2pA",
+        "location": [2146, 4362]
+    },
+    {
+        "name": "Mt. Doom",
+        "url": "E6bVF4hM5iM",
+        "location": [1458, 5940]
+    },
+    {
+        "name": "Misty Mountains",
+        "url": "BSFbKIW8HGs",
+        "location": [2938, 4000]
+    },
+    {
+        "name": "Isengard",
+        "url": "jVFCSMf4ECs",
+        "location": [2240, 3816]
+    },
+    {
+        "name": "Fangorn",
+        "url": "QVYwqQVcB8U",
+        "location": [2542, 4264]
+    },
+    {
+        "name": "Dol Goldur",
+        "url": "bT_xLoZL7pg",
+        "location": [3100, 5016]
+    },
+    {
+        "name": "Forochel",
+        "url": "3Ku3vXuo_uc",
+        "location": [5224, 2174]
+    },
+    {
+        "name": "Woodland Realm",
+        "url": "nzNQLEmGlTE",
+        "location": [4402, 5470]
+    },
+    {
+        "name": "Beorn's Halls",
+        "url": "nzNQLEmGlTE",
+        "location": [4402, 5470]
+    },
+    {
+        "name": "Woodland Realm",
+        "url": "nzNQLEmGlTE",
+        "location": [4402, 5470]
     }
 ]
 }

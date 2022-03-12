@@ -4,11 +4,11 @@ jobs:
     docker:
       - image: circleci/node:14.17.6
     parallelism: 1
-    working_directory: ~/react-application
+    working_directory: ~/react-application/frontend
     steps:
       - checkout
       - attach_workspace:
-          at: ~/react-application
+          at: ~/react-application/frontend
       - run: npm install
       - run: npm run build
       - persist_to_workspace:
@@ -19,11 +19,11 @@ jobs:
     docker:
       - image: circleci/golang:1.17.3
     parallelism: 1
-    working_directory: ~/react-application
+    working_directory: ~/react-application/frontend
     steps:
     - checkout
     - attach_workspace:
-        at: ~/react-application
+        at: ~/react-application/frontend
     - restore_cache:
         key: v1-pkg-cache
     - run:  go get -v github.com/bep/s3deploy/v2

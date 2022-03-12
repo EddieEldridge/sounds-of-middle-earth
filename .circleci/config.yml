@@ -6,8 +6,8 @@ jobs:
     parallelism: 1
     working_directory: ~/react-application/frontend
     steps:
-      - checkout
-      - run: cd frontend
+      - checkout:
+          path: ~/react-application
       - attach_workspace:
           at: ~/react-application/frontend
       - run: npm install
@@ -22,7 +22,8 @@ jobs:
     parallelism: 1
     working_directory: ~/react-application/frontend
     steps:
-    - checkout
+    - checkout:
+        path: ~/react-application
     - run: cd frontend
     - attach_workspace:
         at: ~/react-application/frontend

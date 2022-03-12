@@ -7,6 +7,7 @@ jobs:
     working_directory: ~/react-application/frontend
     steps:
       - checkout
+      - run: ls -l
       - attach_workspace:
           at: ~/react-application/frontend
       - run: npm install

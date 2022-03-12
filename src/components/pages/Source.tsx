@@ -9,7 +9,7 @@ export const Source = (props: any) => {
         <Layout className='layout'>
             <Header className='header'>Source</Header>
             <Content className='content'>
-                <iframe src="https://github.com/EddieEldridge/sounds-of-middle-earth"></iframe>
+                This application was written with
             </Content>
             <Footer className='footer'>LOTR Quote</Footer>
         </Layout>

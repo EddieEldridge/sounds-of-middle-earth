@@ -1,5 +1,31 @@
+# # # # # # # # # # # 
+#       SETUP       # 
+# # # # # # # # # # # 
 version: 2
+orbs:
+  aws-cli: circleci/aws-cli@3.1.0
+  serverless: circleci/serverless-framework@1.0.1
+# # # # # # # # # # # 
+#       JOBS        # 
+# # # # # # # # # # # 
 jobs:
+  # # # # # # # # # # # 
+  #      BACKEND      # 
+  # # # # # # # # # # # 
+  deploy-backend:
+      executor: serverless/default
+      steps:
+        - checkout
+        - aws-cli/setup
+        - serverless/setup:
+            app-name: sounds-of-middle-earth-lambda
+            org-name: circleci
+        - run:
+            command: serverless deploy -v
+            name: deploy-backend
+  # # # # # # # # # # # 
+  #      FRONTEND     #  
+  # # # # # # # # # # # 
   build-frontend:
     docker:
       - image: circleci/node:14.17.6
@@ -37,10 +63,19 @@ jobs:
         name: Deploy to S3
         command: |
           s3deploy -source=dist/ -region=eu-west-1 -key=$PROD_AWS_ACCESS_KEY_ID -secret=$PROD_AWS_SECRET_ACCESS_KEY -distribution-id=$AWS_CLOUDFRONT_DISTRIBUTION_ID -bucket=$BUCKET_NAME
+
+# # # # # # # # # # # 
+#      WORKFLOWS    # 
+# # # # # # # # # # # 
 workflows:
   version: 2
   build-and-deploy-frontend:
     jobs:
+      - deploy-backend:
+          filters:
+            branches:
+              only:
+              - master
       - build-frontend:
           filters:
             branches:

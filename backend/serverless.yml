@@ -1,0 +1,23 @@
+service: sounds-of-middle-earth-lambda
+
+plugins:
+  - serverless-plugin-typescript
+provider:
+  name: aws
+  runtime: nodejs14.x
+  stage: dev
+  region: eu-west-1
+  memorySize: 128
+
+functions:
+  app:
+    handler: ./app.handler
+    events: 
+      - http: 
+          path: /
+          method: GET
+          cors: true
+      - http: 
+          path: /{proxy+}
+          method: GET
+          cors: true

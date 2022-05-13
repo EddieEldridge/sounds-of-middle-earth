@@ -12,8 +12,8 @@ import {
 } from '@ant-design/icons';
 import { Link } from 'react-router-dom';
 
-// import theRing from '../assets/img/LOTRIcon.png';
-import theRing from '../assets/img/logos/logo-menu2.png';
+import theRing from '../assets/img/LOTRIcon.png';
+// import theRing from '../assets/img/logos/logo-menu2.png';
 
 const { Sider } = Layout;
 

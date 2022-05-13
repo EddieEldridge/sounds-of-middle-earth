@@ -1,6 +1,6 @@
 import { ImageOverlay, MapContainer, Marker, Popup } from 'react-leaflet';
-import L, { CRS, LatLngBounds } from 'leaflet';
-import { useState, useRef, useEffect } from 'react';
+import L, { CRS, LatLngBounds, LatLngBoundsExpression } from 'leaflet';
+import { useState, useRef } from 'react';
 import './../../assets/scss/App.scss';
 import LiteYouTubeEmbed from 'react-lite-youtube-embed';
 
@@ -10,10 +10,10 @@ import 'react-lite-youtube-embed/dist/LiteYouTubeEmbed.css';
 import { MAP_URL, MAP_X, MAP_Y } from '../../lib/constants';
 import { iconLOTR } from '../widgets/Icon';
 import { LotrSpinner } from '../widgets/Spinner';
-import { getMapLocation, log } from '../../lib/utils';
+import { getMapLocation, getXyCoords, log } from '../../lib/utils';
 import { MapLocation } from '../../lib/interfaces';
 
-const mapBounds = new LatLngBounds([0, 0], [MAP_Y, MAP_X]);
+const mapBounds: LatLngBoundsExpression = new LatLngBounds([0, 0], [MAP_Y, MAP_X]);
 
 export const LOTRMap = (props: any) => {
     // const [map, setMap] = useState(undefined);
@@ -22,39 +22,44 @@ export const LOTRMap = (props: any) => {
     const [myMarkers, setMyMarkers] = useState(L.layerGroup());
     const mapMarkers = getMapLocation();
 
-    useEffect(() => {
-        const map = mapRef.current.leafletElement;
-        const bounds = [[-26.5, -25], [1021.5, 1023]];
-        const image = L.imageOverlay('https://i.imgur.com/Ion6X7C.jpg', mapBounds).addTo(
-            map
-        );
+    // useEffect(() => {
+    //     const map = mapRef.current.leafletElement;
+    //     const bounds = [[-26.5, -25], [1021.5, 1023]];
+    //     const image = L.imageOverlay('https://i.imgur.com/Ion6X7C.jpg', bounds).addTo(
+    //         map
+    //     );
 
-        // this is what you were looking for
-        map.fitBounds(image.getBounds());
-    }, []);
+    //     // this is what you were looking for
+    //     map.fitBounds(image.getBounds());
+    // }, []);
 
     // eslint-disable-next-line @typescript-eslint/no-shadow
-    // const setMapReference = (map) => {
-    //     log(map);
-    //     setMap(map);
+    const setMapReference = (map: L.Map) => {
+        // setMap(map);
 
-    //     myMarkers.addTo(map);
-    //     setMyMarkers(myMarkers);
-    //     map.fitBounds(mapBounds);
+        if(!map) {
+            log('Map not ready yet...', 'yellow');
 
-    //     // Getting map co-ordinates on click
-    //     const popup = L.popup();
+            return;
+        }
 
-    //     function onMapClick(e) {
-    //         popup
-    //             .setLatLng(e.latlng)
-    //             .setContent(`
-    //             You clicked the map at ${getXyCoords(e.latlng.toString())}
-    //             `)
-    //             .openOn(map);
-    //     }
-    //     map.on('click', onMapClick);
-    // };
+        myMarkers.addTo(map);
+        setMyMarkers(myMarkers);
+        map.fitBounds(mapBounds);
+
+        // Getting map co-ordinates on click
+        const popup = L.popup();
+
+        function onMapClick(e) {
+            popup
+                .setLatLng(e.latlng)
+                .setContent(`
+                You clicked the map at ${getXyCoords(e.latlng.toString())}
+                `)
+                .openOn(map);
+        }
+        map.on('click', onMapClick);
+    };
 
     const spinnerOverlay = () => {
         if(!mapIsLoaded) {
@@ -71,6 +76,7 @@ export const LOTRMap = (props: any) => {
             <div id="mapContainer">
                 <MapContainer
                     center={[0, 0]}
+                    ref={async (map) =>  setMapReference(map)}
                     whenReady={async () => await setMapIsLoaded(true)}
                     minZoom={-25}
                     crs={CRS.Simple}>
@@ -95,6 +101,7 @@ export const LOTRMap = (props: any) => {
                                         id={marker.url}
                                         title={marker.name}
                                         autoplay={true}
+                                        muted={false}
                                     />
                                 </Popup>
                             </Marker>

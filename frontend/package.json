@@ -91,7 +91,7 @@
     "leaflet": "^1.8.0",
     "react-image": "^4.0.3",
     "react-leaflet": "^4.0.0",
-    "react-lite-youtube-embed": "^2.2.2",
+    "react-lite-youtube-embed": "2.0.14-1",
     "react-router-dom": "^6.3.0"
   }
 }

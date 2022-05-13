@@ -24,7 +24,7 @@ export function log(message: any, colour?: string) {
             console.log(chalk.yellow(message));
             break;
         default:
-            console.log(chalk.green(message));
+            console.log(message);
             break;
     }
 }

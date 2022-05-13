@@ -9,7 +9,7 @@ export function getMapLocation(): MapLocation[] {
     return jsonMapData;
 }
 
-export function log(message: string, colour?: string) {
+export function log(message: any, colour?: string) {
     switch (colour) {
         case 'blue':
             console.log(chalk.blue(message));

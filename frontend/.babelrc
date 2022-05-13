@@ -5,7 +5,7 @@
     "@babel/preset-typescript"
   ],
   "plugins": [
-    "react-hot-loader/babel",
+    "react-refresh/babel",
     [
       "babel-plugin-dotenv",
       {

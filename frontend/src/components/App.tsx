@@ -1,8 +1,7 @@
 import * as React from 'react';
-import { hot } from 'react-hot-loader';
 import './../assets/scss/App.scss';
 import '../assets/less/theme.less';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import { Layout } from 'antd';
 
 import { LOTRMap } from './pages/Map';
@@ -19,13 +18,13 @@ class App extends React.Component<Record<string, unknown>, undefined> {
                     <Navigation/>
                     <div id="content">
                         <Layout className="site-layout">
-                            <Switch>
-                                <Route exact path='/' component={LOTRMap} />
-                                <Route path='/map' component={LOTRMap} />
-                                <Route path='/feedback' component={Feedback} />
-                                <Route path='/source' component={Source} />
-                                <Route path='/credits' component={Credits} />
-                            </Switch>
+                            <Routes>
+                                <Route exact path='/' element={<LOTRMap/>} />
+                                <Route path='/map' element={<LOTRMap/>} />
+                                <Route path='/feedback' element={<Feedback/>} />
+                                <Route path='/source' element={<Source/>} />
+                                <Route path='/credits' element={<Credits/>} />
+                            </Routes>
                         </Layout>
                     </div>
                 </Layout>
@@ -34,6 +33,4 @@ class App extends React.Component<Record<string, unknown>, undefined> {
     }
 }
 
-declare let module: Record<string, unknown>;
-
-export default hot(module)(App);
+export default App;

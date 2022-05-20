@@ -36,7 +36,6 @@ jobs:
           path: ~/react-application
       - attach_workspace:
           at: ~/react-application/frontend
-      - run: apt-get update; apt-get install -y --no-install-recommends autoconf automake g++ libpng-dev make;
       - run: npm install
       - run: npm run build
       - persist_to_workspace:

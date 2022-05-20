@@ -10,7 +10,6 @@ import './../../assets/scss/App.scss';
 import '../../assets/scss/StandardLayout.scss';
 import '../../assets/scss/Feedback.scss';
 import { log } from '../../lib/utils';
-import { publishMessage } from '../../lib/sns';
 
 const { Header, Footer, Content } = Layout;
 
@@ -112,7 +111,7 @@ export const Feedback = (props: any) => {
     async function handleSubmit(values) {
         setLoading(true);
         log(values, 'green');
-        await publishMessage(values.toString());
+        // await publishMessage(values.toString());
         setLoading(false);
     }
 

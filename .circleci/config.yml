@@ -28,7 +28,7 @@ jobs:
   # # # # # # # # # # #
   build-frontend:
     docker:
-      - image: circleci/node:14.17.6
+      - image: cimg/node:14.17.6
     parallelism: 1
     working_directory: ~/react-application/frontend
     steps:

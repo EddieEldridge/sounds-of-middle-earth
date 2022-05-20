@@ -1,17 +1,17 @@
-# # # # # # # # # # # 
-#       SETUP       # 
-# # # # # # # # # # # 
+# # # # # # # # # # #
+#       SETUP       #
+# # # # # # # # # # #
 version: 2.1
 orbs:
   aws-cli: circleci/aws-cli@3.1.0
   serverless: circleci/serverless-framework@1.0.1
-# # # # # # # # # # # 
-#       JOBS        # 
-# # # # # # # # # # # 
+# # # # # # # # # # #
+#       JOBS        #
+# # # # # # # # # # #
 jobs:
-  # # # # # # # # # # # 
-  #      BACKEND      # 
-  # # # # # # # # # # # 
+  # # # # # # # # # # #
+  #      BACKEND      #
+  # # # # # # # # # # #
   deploy-backend:
       executor: serverless/default
       steps:
@@ -23,9 +23,9 @@ jobs:
         - run:
             command: serverless deploy -v
             name: deploy-backend
-  # # # # # # # # # # # 
-  #      FRONTEND     #  
-  # # # # # # # # # # # 
+  # # # # # # # # # # #
+  #      FRONTEND     #
+  # # # # # # # # # # #
   build-frontend:
     docker:
       - image: circleci/node:14.17.6
@@ -36,6 +36,7 @@ jobs:
           path: ~/react-application
       - attach_workspace:
           at: ~/react-application/frontend
+      - run: apk add --no-cache autoconf automake file g++ libtool make nasm libpng-dev
       - run: npm install
       - run: npm run build
       - persist_to_workspace:
@@ -64,9 +65,9 @@ jobs:
         command: |
           s3deploy -source=dist/ -region=eu-west-1 -key=$AWS_ACCESS_KEY_ID -secret=$AWS_SECRET_ACCESS_KEY -distribution-id=$AWS_CLOUDFRONT_DISTRIBUTION_ID -bucket=$BUCKET_NAME
 
-# # # # # # # # # # # 
-#      WORKFLOWS    # 
-# # # # # # # # # # # 
+# # # # # # # # # # #
+#      WORKFLOWS    #
+# # # # # # # # # # #
 workflows:
   version: 2
   build-and-deploy-frontend:
@@ -84,7 +85,7 @@ workflows:
               only:
               - master
   build-and-deploy-backend:
-    jobs: 
+    jobs:
       - deploy-backend:
           filters:
             branches:

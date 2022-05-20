@@ -36,7 +36,6 @@ jobs:
           path: ~/react-application
       - attach_workspace:
           at: ~/react-application/frontend
-      - run: apk add --no-cache autoconf automake file g++ libtool make nasm libpng-dev
       - run: npm install
       - run: npm run build
       - persist_to_workspace:

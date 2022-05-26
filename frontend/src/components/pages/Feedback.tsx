@@ -6,9 +6,9 @@ import { Layout ,
 } from 'antd';
 import React, { useState } from 'react';
 
-import './../../assets/scss/App.scss';
-import '../../assets/scss/StandardLayout.scss';
-import '../../assets/scss/Feedback.scss';
+import './../../assets/less/App.less';
+import '../../assets/less/StandardLayout.less';
+import '../../assets/less/Feedback.less';
 import { log } from '../../lib/utils';
 
 const { Header, Footer, Content } = Layout;

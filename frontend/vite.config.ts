@@ -1,15 +1,14 @@
+
 import { defineConfig } from 'vite';
-import react from 'vite-preset-react';
+import react from '@vitejs/plugin-react';
 import vitePluginImp from 'vite-plugin-imp';
-import { getThemeVariables } from 'antd/dist/theme';
+import tsconfigPaths from 'vite-tsconfig-paths';
 
 export default defineConfig({
-    root: 'src',
-    build: {
-        outDir: './dist',
-    },
-    publicDir: './assets',
+    publicDir: './src/assets/',
     plugins: [
+        react(),
+        tsconfigPaths(),
         vitePluginImp({
             libList: [
                 {
@@ -18,30 +17,18 @@ export default defineConfig({
                 },
             ],
         }),
-        react({
-            reactPluginOptions: {
-                // Use React plugin in all *.jsx and *.tsx files
-                include: '**/*.{jsx,tsx}',
-            }
-        })
     ],
     resolve: {
         alias: [
-            // { find: '@', replacement: path.resolve(__dirname, 'src') },
-            // fix less import by: @import ~
-            // https://github.com/vitejs/vite/issues/2185#issuecomment-784637827
             { find: /^~/, replacement: '' },
         ],
     },
     css: {
         preprocessorOptions: {
             less: {
-                javascriptEnabled: true,
-                // modifyVars: getThemeVariables({
-                //     'dark': false,
-                //     'primary-color': '205, 154, 1'
-                // })
+                javascriptEnabled: true
             },
+            modifyVars: { 'primary-color': '#738e11' }
         },
-    }
+    },
 });

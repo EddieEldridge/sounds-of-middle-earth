@@ -1,6 +1,5 @@
 import * as React from 'react';
-import './../assets/scss/App.scss';
-import '../assets/less/theme.less';
+import '../assets/less/App.less';
 import { Route, Routes } from 'react-router-dom';
 import { Layout } from 'antd';
 

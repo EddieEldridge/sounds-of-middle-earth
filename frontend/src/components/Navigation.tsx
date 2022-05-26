@@ -1,9 +1,7 @@
 
 import { Layout, Menu } from 'antd';
-// eslint-disable-next-line import/order
+import './../assets/less/App.less';
 import React, { useState } from 'react';
-import './../assets/scss/App.scss';
-
 import {
     BranchesOutlined,
     GlobalOutlined,

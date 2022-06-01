@@ -26,9 +26,11 @@ export default defineConfig({
     css: {
         preprocessorOptions: {
             less: {
-                javascriptEnabled: true
+                javascriptEnabled: true,
+                modifyVars: {
+                    'primary-color': '#cd9a01'
+                }
             },
-            modifyVars: { 'primary-color': '#738e11' }
         },
     },
 });

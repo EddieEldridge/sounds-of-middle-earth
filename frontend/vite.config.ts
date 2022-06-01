@@ -5,6 +5,10 @@ import vitePluginImp from 'vite-plugin-imp';
 import tsconfigPaths from 'vite-tsconfig-paths';
 
 export default defineConfig({
+    build: {
+        outDir: '../dist',
+        emptyOutDir: true
+    },
     publicDir: './src/assets/',
     plugins: [
         react(),

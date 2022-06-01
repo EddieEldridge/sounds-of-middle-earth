@@ -34,6 +34,7 @@ export function getXyCoords(latLngString: string): string | undefined {
         return latLngString.match(/\(([^)]+)\)/)[1];
     } catch (error) {
         log(error, 'red');
+
         return undefined;
     }
 }

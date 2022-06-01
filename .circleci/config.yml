@@ -30,13 +30,14 @@ jobs:
     docker:
       - image: cimg/node:14.17.6
     parallelism: 1
-    working_directory: ~/react-application/frontend
+    working_directory: ~/sounds-of-middle-earth/frontend
     steps:
       - checkout:
-          path: ~/react-application
+          path: ~/sounds-of-middle-earth
       - attach_workspace:
-          at: ~/react-application/frontend
-      - run: npm install
+          at: ~/sounds-of-middle-earth/frontend
+      - node/install-packages:
+          pkg-manager: npm
       - run: npm run build
       - persist_to_workspace:
           root: .
@@ -46,12 +47,12 @@ jobs:
     docker:
       - image: circleci/golang:1.17.3
     parallelism: 1
-    working_directory: ~/react-application/frontend
+    working_directory: ~/sounds-of-middle-earth/frontend
     steps:
     - checkout:
-        path: ~/react-application
+        path: ~/sounds-of-middle-earth
     - attach_workspace:
-        at: ~/react-application/frontend
+        at: ~/sounds-of-middle-earth/frontend
     - restore_cache:
         key: v1-pkg-cache
     - run:  go get -v github.com/bep/s3deploy/v2

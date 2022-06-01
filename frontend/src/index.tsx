@@ -1,13 +1,14 @@
 import * as React from 'react';
-import { render } from 'react-dom';
 import { BrowserRouter as Router } from 'react-router-dom';
+import { createRoot } from 'react-dom/client';
 
 import App from './components/App';
 
 const rootEl = document.getElementById('root');
+const root =  createRoot(rootEl!);
 
-render(
+root.render(
     <Router>
         <App />
     </Router>,
-    rootEl);
+);

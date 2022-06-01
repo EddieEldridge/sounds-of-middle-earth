@@ -1,7 +1,7 @@
 import { Layout } from 'antd';
 import React from 'react';
-import './../../assets/scss/App.scss';
-import '../../assets/scss/StandardLayout.scss';
+import './../../assets/less/App.less';
+import '../../assets/less/StandardLayout.less';
 
 const { Header, Footer, Content } = Layout;
 

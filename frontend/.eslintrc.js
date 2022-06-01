@@ -15,7 +15,7 @@ module.exports = {
         'unused-imports',
         'eslint-plugin-react'
     ],
-    ignorePatterns: ['dist/', 'scripts/', 'node_modules/', 'venv/'],
+    ignorePatterns: ['dist/', 'scripts/', 'node_modules/', 'venv/', 'vite.config.js'],
     rules: {
         '@typescript-eslint/adjacent-overload-signatures': 'error',
         '@typescript-eslint/ban-ts-ignore': 'off',

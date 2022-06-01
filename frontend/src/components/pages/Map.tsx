@@ -1,7 +1,7 @@
 import { ImageOverlay, MapContainer, Marker, Popup } from 'react-leaflet';
 import L, { CRS, LatLngBounds, LatLngBoundsExpression } from 'leaflet';
-import { useState, useRef } from 'react';
-import './../../assets/scss/App.scss';
+import React, { useState, useRef } from 'react';
+import './../../assets/less/App.less';
 import LiteYouTubeEmbed from 'react-lite-youtube-embed';
 
 import 'react-lite-youtube-embed/dist/LiteYouTubeEmbed.css';

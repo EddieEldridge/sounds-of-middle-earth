@@ -36,8 +36,7 @@ jobs:
           path: ~/sounds-of-middle-earth
       - attach_workspace:
           at: ~/sounds-of-middle-earth/frontend
-      - node/install-packages:
-          pkg-manager: npm
+      - run: npm install
       - run: npm run build
       - persist_to_workspace:
           root: .

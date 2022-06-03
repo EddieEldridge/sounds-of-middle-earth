@@ -29,7 +29,8 @@ jobs:
   # # # # # # # # # # #
   build-frontend:
     docker:
-      image: cimg/node:18.2.0
+      - image: circleci/golang:1.17.3
+    parallelism: 1
     working_directory: ~/sounds-of-middle-earth/frontend
     steps:
       - checkout:

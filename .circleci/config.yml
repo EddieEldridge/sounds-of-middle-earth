@@ -29,15 +29,14 @@ jobs:
   # # # # # # # # # # #
   build-frontend:
     executor: node/default
-    # working_directory: ~/sounds-of-middle-earth/frontend
+    working_directory: ~/sounds-of-middle-earth/frontend
     steps:
-      # - checkout:
-      #     path: ~/sounds-of-middle-earth
-      # - attach_workspace:
-      #     at: ~/sounds-of-middle-earth/frontend
-      - run:
-          command: cd frontend
-      - node/install-packages
+      - checkout:
+          path: ~/sounds-of-middle-earth
+      - attach_workspace:
+          at: ~/sounds-of-middle-earth/frontend
+      - node/install-packages:
+          pkg-manager: npm
       - node/run:
           npm-run: build
       - persist_to_workspace:

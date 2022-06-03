@@ -35,14 +35,24 @@ jobs:
           path: ~/sounds-of-middle-earth
       - attach_workspace:
           at: ~/sounds-of-middle-earth/frontend
-      - node/install-packages:
-          pkg-manager: npm
-      - node/run:
-          npm-run: build
+      - run:
+          command: sudo npm install -g vite
+      - run:
+          command: npm ci
+      - run:
+          command: ls
+      - run:
+          command: node_modules/vite/bin/vite.js --version
+       - run:
+          command: npm run build
+      # - node/install-packages:
+      #     pkg-manager: npm
+      # - node/run:
+      #     npm-run: build
       - persist_to_workspace:
           root: .
           paths:
-          - dist
+            - dist
   deploy-frontend:
     docker:
       - image: circleci/golang:1.17.3

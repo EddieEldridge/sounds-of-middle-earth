@@ -43,7 +43,7 @@ jobs:
           command: ls
       - run:
           command: node_modules/vite/bin/vite.js --version
-       - run:
+      - run:
           command: npm run build
       # - node/install-packages:
       #     pkg-manager: npm

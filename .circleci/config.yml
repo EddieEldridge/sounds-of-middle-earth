@@ -28,7 +28,8 @@ jobs:
   #      FRONTEND     #
   # # # # # # # # # # #
   build-frontend:
-    image: cimg/node:18.2.0
+    docker:
+      image: cimg/node:18.2.0
     working_directory: ~/sounds-of-middle-earth/frontend
     steps:
       - checkout:

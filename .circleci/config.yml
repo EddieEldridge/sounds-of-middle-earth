@@ -40,7 +40,7 @@ jobs:
       - run:
           command: sudo npm install -g vite
       - run:
-          command: npm ci
+          command: npm install
       - run:
           command: ls
       - run:

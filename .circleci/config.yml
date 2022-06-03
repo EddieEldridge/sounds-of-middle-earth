@@ -28,7 +28,7 @@ jobs:
   #      FRONTEND     #
   # # # # # # # # # # #
   build-frontend:
-    executor: node/default
+    image: cimg/node:18.2.0
     working_directory: ~/sounds-of-middle-earth/frontend
     steps:
       - checkout:

@@ -5,6 +5,7 @@ version: 2.1
 orbs:
   aws-cli: circleci/aws-cli@3.1.0
   serverless: circleci/serverless-framework@1.0.1
+  node: circleci/node@5.0.2
 # # # # # # # # # # #
 #       JOBS        #
 # # # # # # # # # # #
@@ -27,17 +28,15 @@ jobs:
   #      FRONTEND     #
   # # # # # # # # # # #
   build-frontend:
-    docker:
-      - image: cimg/node:14.17.6
-    parallelism: 1
+    executor: node/default
     working_directory: ~/sounds-of-middle-earth/frontend
     steps:
       - checkout:
           path: ~/sounds-of-middle-earth
       - attach_workspace:
           at: ~/sounds-of-middle-earth/frontend
-      - run: npm ci
-      - run: sudo npm install -g vite
+      - node/install-packages:
+          pkg-manager: npm
       - run: npm run build
       - persist_to_workspace:
           root: .

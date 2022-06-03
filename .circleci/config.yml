@@ -37,7 +37,8 @@ jobs:
           at: ~/sounds-of-middle-earth/frontend
       - node/install-packages:
           pkg-manager: npm
-      - run: npm run build
+      -- node/run:
+          npm-run: build
       - persist_to_workspace:
           root: .
           paths:

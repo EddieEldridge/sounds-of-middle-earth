@@ -37,6 +37,7 @@ jobs:
       - attach_workspace:
           at: ~/sounds-of-middle-earth/frontend
       - run: npm ci
+      - run: sudo npm install -g vite
       - run: npm run build
       - persist_to_workspace:
           root: .

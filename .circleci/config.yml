@@ -38,7 +38,8 @@ jobs:
       - run:
           command: cd frontend
       - node/install-packages
-      - npm-run: build
+      - node/run:
+          npm-run: build
       - persist_to_workspace:
           root: .
           paths:

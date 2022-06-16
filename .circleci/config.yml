@@ -30,9 +30,12 @@ jobs:
   build-frontend:
     docker:
       - image: cimg/node:18.3.0
+    working_directory: ~/sounds-of-middle-earth/frontend
     steps:
       - checkout:
-          path: ~/sounds-of-middle-earth/frontend     #     path: ~/sounds-of-middle-earth
+          path: ~/sounds-of-middle-earth
+      - attach_workspace:
+          at: ~/sounds-of-middle-earth/frontend
       - node/install-packages
       - run:
           name: Build project

@@ -36,6 +36,7 @@ jobs:
       - attach_workspace:
           at: ~/sounds-of-middle-earth/frontend
       - node/install-packages
+          app-dir: frontend
       - run:
           name: Build project
           command: npm run build

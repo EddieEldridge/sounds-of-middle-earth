@@ -28,8 +28,7 @@ jobs:
   #      FRONTEND     #
   # # # # # # # # # # #
   build-frontend:
-    docker:
-      - image: circleci/node:lts
+    executor: node/default
     parallelism: 1
     working_directory: ~/sounds-of-middle-earth/frontend
     steps:
@@ -37,20 +36,9 @@ jobs:
           path: ~/sounds-of-middle-earth
       - attach_workspace:
           at: ~/sounds-of-middle-earth/frontend
-      - run:
-          command: sudo npm install -g vite
-      - run:
-          command: npm install
-      - run:
-          command: ls -l node_modules/.bin
-      - run:
-          command: node_modules/.bin/vite --version
-      - run:
-          command: npm run build
-      # - node/install-packages:
-      #     pkg-manager: npm
-      # - node/run:
-      #     npm-run: build
+      - node/install-packages:
+      - node/run:
+          npm-run: build
       - persist_to_workspace:
           root: .
           paths:

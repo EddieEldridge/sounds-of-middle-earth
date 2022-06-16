@@ -41,10 +41,10 @@ jobs:
           override-ci-command: npm install
       - run:
           name: Install Vite
-          command: npm install vite --location=global
+          command: ls -l
       - run:
           name: Build project
-          command: npm run build
+          command: npm install vite --location=global; npm run build;
       - persist_to_workspace:
           root: .
           paths:

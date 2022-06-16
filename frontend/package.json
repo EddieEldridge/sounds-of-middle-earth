@@ -22,9 +22,9 @@
   },
   "homepage": "https://github.com/EddieEldridge/sounds-of-middle-earth",
   "scripts": {
-    "start": "vite --config vite.config.ts serve src",
-    "build": "vite --config vite.config.ts build src",
-    "preview": "vite --config vite.config.ts preview",
+    "start": "node_modules/vite/bin/vite --config vite.config.ts serve src",
+    "build": "node_modules/vite/bin/vite --config vite.config.ts build src",
+    "preview": "node_modules/vite/bin/vite --config vite.config.ts preview",
     "clean-dist": "rimraf dist/*",
     "lint": "eslint './src/**/*.{js,ts,tsx}' --quiet",
     "start-prod": "npm run build && node express.js",

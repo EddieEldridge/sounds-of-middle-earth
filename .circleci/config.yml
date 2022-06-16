@@ -36,7 +36,9 @@ jobs:
           path: ~/sounds-of-middle-earth
       - attach_workspace:
           at: ~/sounds-of-middle-earth/frontend
-      - node/install-packages
+      - node/install-packages:
+          cache-path: ~/sounds-of-middle-earth/frontend/node_modules
+          override-ci-command: npm install
       - run:
           name: Install Vite
           command: npm install vite --location=global

@@ -42,7 +42,7 @@ jobs:
       - run:
           command: npm install
       - run:
-          command: ls
+          command: ls -l node_modules/.bin
       - run:
           command: node_modules/.bin/vite --version
       - run:

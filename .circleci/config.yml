@@ -38,9 +38,11 @@ jobs:
           at: ~/sounds-of-middle-earth/frontend
       - node/install-packages
       - run:
+          name: Install Vite
+          command: npm install -g vite
+      - run:
           name: Build project
           command: npm run build
-          setup: npm install -g vite
       - persist_to_workspace:
           root: .
           paths:

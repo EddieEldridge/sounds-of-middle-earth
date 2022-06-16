@@ -31,10 +31,10 @@ jobs:
     docker:
       - image: cimg/node:18.3.0
     steps:
-    - checkout:
-        path: ~/sounds-of-middle-earth
-    - attach_workspace:
-        at: ~/sounds-of-middle-earth/frontend
+      - checkout:
+          path: ~/sounds-of-middle-earth
+      - attach_workspace:
+          at: ~/sounds-of-middle-earth/frontend
       - node/install-packages
       - run:
           name: Build project

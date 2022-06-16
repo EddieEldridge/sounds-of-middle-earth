@@ -40,7 +40,7 @@ jobs:
           cache-path: ~/sounds-of-middle-earth/frontend/node_modules
           override-ci-command: npm install
       - run:
-          name: Install Vite
+          name: ls -l node_modules/vite
           command: ls -l node_modules/vite
       - run:
           name: Build project

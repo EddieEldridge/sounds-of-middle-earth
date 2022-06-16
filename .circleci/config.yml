@@ -28,22 +28,19 @@ jobs:
   #      FRONTEND     #
   # # # # # # # # # # #
   build-frontend:
-    executor: node/default
-    working_directory: ~/sounds-of-middle-earth/frontend
+    docker:
+      - image: cimg/base:stable
     steps:
-      - checkout:
-          path: ~/sounds-of-middle-earth
-      - attach_workspace:
-          at: ~/sounds-of-middle-earth/frontend
       - node/install-packages:
-                pkg-manager: npm
-      - run:
-          command: npm run build
-          name: Build app
+          app-dir: frontend
+      - node/run:
+          app-dir: frontend
+          npm-run: build
+          setup: npm install -g vite
       - persist_to_workspace:
           root: .
           paths:
-            - dist
+            - frontend/dist
   deploy-frontend:
     docker:
       - image: circleci/golang:1.17.3

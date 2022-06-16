@@ -39,7 +39,7 @@ jobs:
       - node/install-packages
       - run:
           name: Install Vite
-          command: npm install -g vite
+          command: npm install vite --location=global
       - run:
           name: Build project
           command: npm run build

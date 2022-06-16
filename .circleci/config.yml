@@ -35,7 +35,7 @@ jobs:
           path: ~/sounds-of-middle-earth
       - attach_workspace:
           at: ~/sounds-of-middle-earth/frontend
-      - node/install-packages
+      - node/install-packages:
           app-dir: frontend
       - run:
           name: Build project

@@ -29,7 +29,6 @@ jobs:
   # # # # # # # # # # #
   build-frontend:
     executor: node/default
-    parallelism: 1
     working_directory: ~/sounds-of-middle-earth/frontend
     steps:
       - checkout:
@@ -37,8 +36,9 @@ jobs:
       - attach_workspace:
           at: ~/sounds-of-middle-earth/frontend
       - node/install-packages:
-      - node/run:
-          npm-run: build
+      - run:
+          command: npm run build
+          name: Build app
       - persist_to_workspace:
           root: .
           paths:
@@ -46,7 +46,6 @@ jobs:
   deploy-frontend:
     docker:
       - image: circleci/golang:1.17.3
-    parallelism: 1
     working_directory: ~/sounds-of-middle-earth/frontend
     steps:
     - checkout:

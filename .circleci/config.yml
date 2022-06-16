@@ -36,12 +36,10 @@ jobs:
       - attach_workspace:
           at: ~/sounds-of-middle-earth/frontend
       - node/install-packages:
+                pkg-manager: npm
       - run:
           command: npm run build
           name: Build app
-          pkg-manager: npm
-      - node/run:
-          npm-run: build
       - persist_to_workspace:
           root: .
           paths:

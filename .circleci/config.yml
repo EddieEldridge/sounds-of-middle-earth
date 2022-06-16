@@ -41,7 +41,7 @@ jobs:
           override-ci-command: npm install
       - run:
           name: ls -l node_modules/vite
-          command: ls -l node_modules/vite
+          command: ls -l node_modules
       - run:
           name: Build project
           command: npm run build;

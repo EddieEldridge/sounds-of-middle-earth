@@ -31,11 +31,13 @@ jobs:
     docker:
       - image: cimg/base:stable
     steps:
+      - checkout
       - node/install-packages:
           app-dir: frontend
-      - node/run:
+      - run:
+          name: Build project
           app-dir: frontend
-          npm-run: build
+          command: npm run build
           setup: npm install -g vite
       - persist_to_workspace:
           root: .

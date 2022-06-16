@@ -39,16 +39,12 @@ jobs:
       - node/install-packages:
           cache-path: ~/sounds-of-middle-earth/frontend/node_modules
           override-ci-command: npm install
-      - restore_cache:
-          keys:
-            # Find the most recently generated cache used from any branch
-            - node-deps-*
       - run:
           name: Install Vite
-          command: ls -l
+          command: ls -l node_modules/vite
       - run:
           name: Build project
-          command: npm install vite --location=global; npm run build;
+          command: npm run build;
       - persist_to_workspace:
           root: .
           paths:

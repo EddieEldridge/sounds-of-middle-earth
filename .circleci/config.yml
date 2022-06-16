@@ -39,6 +39,9 @@ jobs:
       - run:
           command: npm run build
           name: Build app
+          pkg-manager: npm
+      - node/run:
+          npm-run: build
       - persist_to_workspace:
           root: .
           paths:

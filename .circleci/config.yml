@@ -32,7 +32,7 @@ jobs:
       - image: cimg/node:18.3.0
     steps:
       - checkout:
-        path: ~/sounds-of-middle-earth/frontend     #     path: ~/sounds-of-middle-earth
+          path: ~/sounds-of-middle-earth/frontend     #     path: ~/sounds-of-middle-earth
       - node/install-packages
       - run:
           name: Build project

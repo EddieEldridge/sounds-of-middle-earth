@@ -40,14 +40,14 @@ jobs:
           key: dependency-cache-{{ checksum "package.json" }}
       - node/install-packages:
           cache-path: ~/sounds-of-middle-earth/frontend/node_modules
-          override-ci-command: npm install
+          override-ci-command: npm install --production=false
       - save_cache:
           key: dependency-cache-{{ checksum "package.json" }}
           paths:
             - ./node_modules
       - run:
           name: ls -l node_modules/vite
-          command: ls -l node_modules/@vitejs
+          command: ls -l node_modules
       - run:
           name: Build project
           command: npm run build;

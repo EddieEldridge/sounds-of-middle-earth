@@ -33,7 +33,8 @@ export default defineConfig({
                 javascriptEnabled: true,
                 modifyVars: {
                     'primary-color': '#cd9a01'
-                }
+                },
+                darkMode: true
             },
         },
     },

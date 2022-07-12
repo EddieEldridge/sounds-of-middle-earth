@@ -108,7 +108,7 @@ export const Feedback = (props: any) => {
         }
     }
 
-    async function handleSubmit(values) {
+    async function handleSubmit(values: any) {
         setLoading(true);
         log(values, 'green');
         // await publishMessage(values.toString());

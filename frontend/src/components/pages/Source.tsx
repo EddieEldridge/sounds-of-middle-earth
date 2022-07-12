@@ -9,7 +9,7 @@ export const Source = (props: any) => {
         <Layout className='layout'>
             <Header className='header'>Source</Header>
             <Content className='content'>
-                This application was written with
+                Coming Soon
             </Content>
             <Footer className='footer'>LOTR Quote</Footer>
         </Layout>

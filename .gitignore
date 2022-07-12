@@ -11,3 +11,4 @@ terraform.tfvars
 .vscode
 terraform.tfstate*
 .serverless
+.build

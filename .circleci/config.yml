@@ -4,7 +4,7 @@
 version: 2.1
 orbs:
   aws-cli: circleci/aws-cli@3.1.0
-  serverless: circleci/serverless-framework@1.0.1
+  serverless-framework: circleci/serverless-framework@2.0
   node: circleci/node@5.0.2
 # # # # # # # # # # #
 #       JOBS        #
@@ -14,16 +14,17 @@ jobs:
   #      BACKEND      #
   # # # # # # # # # # #
   deploy-backend:
-      executor: serverless/default
+      executor: serverless-framework/default
       steps:
         - checkout
         - aws-cli/setup
-        - serverless/setup:
-            app-name: sounds-of-middle-earth-lambda
-            org-name: circleci
+        - serverless-framework/setup
         - run:
-            command: serverless deploy -v
+            name: cd backend
+            command: cd backend
+        - run:
             name: deploy-backend
+            command: serverless deploy -v
   # # # # # # # # # # #
   #      FRONTEND     #
   # # # # # # # # # # #

@@ -11,7 +11,8 @@
   "license": "ISC",
   "dependencies": {
     "aws-lambda": "^1.0.7",
-    "axios": "^0.27.2"
+    "axios": "^0.27.2",
+    "serverless": "^3.20.0"
   },
   "devDependencies": {
     "@types/aws-lambda": "^8.10.101",

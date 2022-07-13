@@ -15,6 +15,7 @@ jobs:
   # # # # # # # # # # #
   deploy-backend:
       executor: serverless-framework/default
+      working_directory: ~/sounds-of-middle-earth/backend
       steps:
         - checkout:
             path: ~/sounds-of-middle-earth

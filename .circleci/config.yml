@@ -27,8 +27,11 @@ jobs:
             name: list files
             command: ls -l
         - run:
-            name: npm install
-            command: npm install
+            name: install plugins
+            command: npm install -g serverless-offline
+        - run:
+            name: install plugins
+            command: npm install -g serverless-plugin-typescript
         - run:
             name: serverless deploy
             command: sls deploy

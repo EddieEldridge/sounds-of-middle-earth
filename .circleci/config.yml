@@ -16,14 +16,17 @@ jobs:
   deploy-backend:
       executor: serverless-framework/default
       steps:
-        - checkout
+        - checkout:
+            path: ~/sounds-of-middle-earth
+        - attach_workspace:
+            at: ~/sounds-of-middle-earth/backend
         - aws-cli/setup
         - serverless-framework/setup
         - run:
             name: cd backend
             command: cd backend
         - run:
-            name: cd backend
+            name: list files
             command: ls
         - run:
             name: deploy-backend

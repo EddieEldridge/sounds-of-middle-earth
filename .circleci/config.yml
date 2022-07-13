@@ -28,10 +28,10 @@ jobs:
             command: ls -l
         - run:
             name: install plugins
-            command: npm install -g serverless-offline
+            command: sudo npm install -g serverless-offline
         - run:
             name: install plugins
-            command: npm install -g serverless-plugin-typescript
+            command: sudo npm install -g serverless-plugin-typescript
         - run:
             name: serverless deploy
             command: sls deploy

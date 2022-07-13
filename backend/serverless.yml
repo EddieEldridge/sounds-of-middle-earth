@@ -15,7 +15,7 @@ provider:
 functions:
   getApiInfo:
     name: some-v1-get-api-info
-    handler: handlers/App.getApiInfo
+    handler: src/handlers/App.getApiInfo
     reservedConcurrency: 1
     events:
       - http:
@@ -25,7 +25,7 @@ functions:
 
   getLotrQuote:
     name: some-v1-get-lotr-quote
-    handler: handlers/LOTR.getLOTRQuote
+    handler: src/handlers/LOTR.getLOTRQuote
     environment:
       LOTR_API_TOKEN: ${env:LOTR_API_TOKEN}
     events:

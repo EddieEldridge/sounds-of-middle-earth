@@ -1,5 +1,6 @@
-import TheOneAPI from "../api/TheOneAPI";
 import { APIGatewayProxyEvent, Context, APIGatewayProxyResult, Handler } from 'aws-lambda';
+
+import TheOneAPI from '../api/TheOneAPI';
 
 export const getLOTRQuote: Handler = async (event: APIGatewayProxyEvent, context: Context): Promise<APIGatewayProxyResult> => {
     const theOneAPI = new TheOneAPI();

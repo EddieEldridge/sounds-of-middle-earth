@@ -25,10 +25,10 @@ jobs:
         - serverless-framework/setup
         - run:
             name: list files
-            command: ls
+            command: ls -l
         - run:
-            name: deploy-backend
-            command: sls deploy -v
+            name: serverless deploy
+            command: sls deploy
   # # # # # # # # # # #
   #      FRONTEND     #
   # # # # # # # # # # #

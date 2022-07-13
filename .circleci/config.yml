@@ -23,9 +23,6 @@ jobs:
         - aws-cli/setup
         - serverless-framework/setup
         - run:
-            name: cd backend
-            command: cd backend
-        - run:
             name: list files
             command: ls
         - run:

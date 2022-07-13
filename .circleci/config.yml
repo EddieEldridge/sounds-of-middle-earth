@@ -23,6 +23,9 @@ jobs:
             name: cd backend
             command: cd backend
         - run:
+            name: cd backend
+            command: ls
+        - run:
             name: deploy-backend
             command: sls deploy -v
   # # # # # # # # # # #

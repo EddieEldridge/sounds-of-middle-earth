@@ -24,7 +24,7 @@ jobs:
             command: cd backend
         - run:
             name: deploy-backend
-            command: serverless deploy -v
+            command: sls deploy -v
   # # # # # # # # # # #
   #      FRONTEND     #
   # # # # # # # # # # #

@@ -34,7 +34,7 @@ export const LOTRMap = (props: any) => {
         myMarkers.addTo(map);
         setMyMarkers(myMarkers);
         // map.fitBounds(mapBounds);
-        map.setView([MAP_Y / 4, MAP_X / 1.5], 1);
+        map.setView([MAP_Y / 4, MAP_X / 1.5], 0.5);
         map.zoomIn(0.5);
         map.zoomOut(0.5);
 

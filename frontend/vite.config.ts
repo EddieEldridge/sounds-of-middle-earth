@@ -32,7 +32,7 @@ export default defineConfig({
             less: {
                 javascriptEnabled: true,
                 modifyVars: {
-                    'primary-color': '#cd9a01',
+                    'primary-color': '#c28b00',
                     'dark': true
                 },
             },

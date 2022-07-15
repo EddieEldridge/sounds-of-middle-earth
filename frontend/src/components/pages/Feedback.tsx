@@ -127,7 +127,7 @@ export const Feedback = (props: any) => {
                     size={'large'}
                     onFinish={handleSubmit}
                 >
-                    <Form.Item label="Feedback Type">
+                    <Form.Item className='formItem' label="Feedback Type">
                         <Select
                             defaultValue={'location'}
                             onSelect={(choice: string) => setFeedbackChoice(choice)}
@@ -151,7 +151,7 @@ export const Feedback = (props: any) => {
                     </Form.Item>
                 </Form>
             </Content>
-            <Footer className='footer'>LOTR Quote</Footer>
+            <Footer className='footer'></Footer>
         </Layout>
     );
 };

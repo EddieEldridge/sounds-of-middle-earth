@@ -1,4 +1,3 @@
-import React from 'react';
 import './../../assets/less/App.less';
 import '../../assets/less/StandardLayout.less';
 import { Layout } from 'antd';
@@ -11,7 +10,7 @@ export const Source = (props: any) => {
             <Content className='content'>
                 Coming Soon
             </Content>
-            <Footer className='footer'>LOTR Quote</Footer>
+            <Footer className='footer'></Footer>
         </Layout>
     );
 };

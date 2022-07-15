@@ -16,14 +16,11 @@ import { MapLocation } from '../../lib/interfaces';
 const mapBounds: LatLngBoundsExpression = new LatLngBounds([0, 0], [MAP_Y, MAP_X]);
 
 export const LOTRMap = (props: any) => {
-    // const [map, setMap] = useState(undefined);
     const [mapIsLoaded, setMapIsLoaded] = useState(false);
     const [myMarkers, setMyMarkers] = useState(L.layerGroup());
     const mapMarkers = getMapMarkers();
 
     const setMapReference = (map: L.Map) => {
-        // setMap(map);
-
         if (!map) {
             log('Map not ready yet...', 'yellow');
 
@@ -31,10 +28,9 @@ export const LOTRMap = (props: any) => {
         }
 
         // Set the map bounds to the map size
-        map.setView([MAP_Y / 4, MAP_X / 1.8], 0);
         myMarkers.addTo(map);
         setMyMarkers(myMarkers);
-        map.fitBounds(mapBounds);
+        // map.fitBounds(mapBounds);
 
         // Getting map co-ordinates on click
         const popup = L.popup();
@@ -81,16 +77,23 @@ export const LOTRMap = (props: any) => {
                 <MapContainer
                     id="lotrMap"
                     scrollWheelZoom={true}
-                    wheelPxPerZoomLevel={5}
-                    center={[0, 0]}
+                    zoomAnimation={true}
+                    center={[MAP_Y / 3.8, MAP_X / 1.85]}
+                    zoomSnap={0.2}
+                    zoomDelta={0.2}
+                    maxZoom={3}
+                    minZoom={-3}
+                    zoom={-1}
+                    wheelDebounceTime={0}
+                    wheelPxPerZoomLevel={120}
                     ref={async (map) => {
                         if(map) {
                             setMapReference(map);
                         }
                     }}
                     whenReady={async () => setMapIsLoaded(true)}
-                    minZoom={-100}
-                    crs={CRS.Simple}>
+                    crs={CRS.Simple}
+                >
                     <ImageOverlay
                         eventHandlers={{
                             loading: (e) => {

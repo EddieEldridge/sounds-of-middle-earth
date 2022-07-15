@@ -25,6 +25,8 @@ export const Navigation = (props: any) => {
         } else {
             toggleCollapsed(true);
         }
+        setTimeout(()=> {
+        }, 2000);
     };
 
     return (

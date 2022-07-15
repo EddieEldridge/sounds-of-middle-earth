@@ -10,7 +10,7 @@ import 'react-lite-youtube-embed/dist/LiteYouTubeEmbed.css';
 import { MAP_URL, MAP_X, MAP_Y } from '../../lib/constants';
 import { iconLOTR } from '../widgets/Icon';
 import { LotrSpinner } from '../widgets/Spinner';
-import { getMapLocation, getXyCoords, log } from '../../lib/utils';
+import { getMapLocation as getMapMarkers, getXyCoords, log } from '../../lib/utils';
 import { MapLocation } from '../../lib/interfaces';
 
 const mapBounds: LatLngBoundsExpression = new LatLngBounds([0, 0], [MAP_Y, MAP_X]);
@@ -19,7 +19,7 @@ export const LOTRMap = (props: any) => {
     // const [map, setMap] = useState(undefined);
     const [mapIsLoaded, setMapIsLoaded] = useState(false);
     const [myMarkers, setMyMarkers] = useState(L.layerGroup());
-    const mapMarkers = getMapLocation();
+    const mapMarkers = getMapMarkers();
 
     const setMapReference = (map: L.Map) => {
         // setMap(map);
@@ -31,12 +31,10 @@ export const LOTRMap = (props: any) => {
         }
 
         // Set the map bounds to the map size
+        map.setView([MAP_Y / 4, MAP_X / 1.8], 0);
         myMarkers.addTo(map);
         setMyMarkers(myMarkers);
-        // map.fitBounds(mapBounds);
-        map.setView([MAP_Y / 4, MAP_X / 1.5], 0.5);
-        map.zoomIn(0.5);
-        map.zoomOut(0.5);
+        map.fitBounds(mapBounds);
 
         // Getting map co-ordinates on click
         const popup = L.popup();
@@ -50,6 +48,9 @@ export const LOTRMap = (props: any) => {
                 .openOn(map);
         }
         map.on('click', onMapClick);
+        map.on('click', () => {
+            console.log(map.getZoom());
+        });
     };
 
     const spinnerOverlay = () => {
@@ -62,10 +63,25 @@ export const LOTRMap = (props: any) => {
         log('Map is loaded...', 'green');
     };
 
+    // Map Props
+    //  {
+    //     doubleClickZoom: false,
+    //     closePopupOnClick: false,
+    //     dragging: false,
+    //     zoomSnap: false,
+    //     zoomDelta: false,
+    //     trackResize: false,
+    //     touchZoom: false,
+    //     scrollWheelZoom: false
+    //   }
+
     return (
         <div id='mainMap'>
             <div id="mapContainer">
                 <MapContainer
+                    id="lotrMap"
+                    scrollWheelZoom={true}
+                    wheelPxPerZoomLevel={5}
                     center={[0, 0]}
                     ref={async (map) => {
                         if(map) {

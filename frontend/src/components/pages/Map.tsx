@@ -87,7 +87,13 @@ export const LOTRMap = (props: any) => {
                     />
                     {mapMarkers.map((marker: MapLocation) => {
                         return (
-                            <Marker title={marker.name} alt={marker.name} riseOnHover={true} icon={iconLOTR} position={marker.location}>
+                            <Marker
+                                title={marker.name}
+                                alt={marker.name}
+                                riseOnHover={true}
+                                icon={iconLOTR}
+                                position={marker.location}
+                            >
                                 <Popup className='marker-popup'>
                                     <LiteYouTubeEmbed
                                         id={marker.url}

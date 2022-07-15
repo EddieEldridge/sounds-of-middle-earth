@@ -14,7 +14,7 @@
 ![](https://img.shields.io/github/issues/EddieEldridge/sounds-of-middle-earth?style=for-the-badge)
 ![](https://img.shields.io/github/stars/EddieEldridge/sounds-of-middle-earth?style=for-the-badge)
 
-![Sounds of Middle Earth](https://www.cartographersguild.com/attachment.php?attachmentid=105997&d=1522516837)
+![Sounds of Middle Earth](https://user-images.githubusercontent.com/22448079/179321665-c903cf16-3486-4eb2-979c-4f2e2130339c.png)
 
 
 ## Build
@@ -51,8 +51,7 @@ To build the project and run the dev server you can run
 - Node
 - AWS
 - Terraform
+- Serverless
 - Jest
 - CircleCI
 - ESLint
-
-

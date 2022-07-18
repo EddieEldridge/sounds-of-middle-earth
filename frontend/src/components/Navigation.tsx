@@ -25,8 +25,6 @@ export const Navigation = (props: any) => {
         } else {
             toggleCollapsed(true);
         }
-        setTimeout(()=> {
-        }, 2000);
     };
 
     return (
@@ -49,18 +47,21 @@ export const Navigation = (props: any) => {
                     </Link>
                 </Menu.Item>
                 <Menu.Item key="credits" icon={<HeartOutlined />}>
-                    <Link to="credits">
-                        Credits
+                    {/* <Link to="credits"> */}
+                    <Link to="/">
+                        Coming Soon
                     </Link>
                 </Menu.Item>
                 <Menu.Item key="source" icon={<BranchesOutlined />}>
-                    <Link to="source">
-                        Source
+                    {/* <Link to="source"> */}
+                    <Link to="/">
+                        Coming Soon
                     </Link>
                 </Menu.Item>
                 <Menu.Item key="feedback" icon={<MailOutlined />}>
-                    <Link to="feedback">
-                        Feedback
+                    {/* <Link to="feedback"> */}
+                    <Link to="/">
+                        Coming Soon
                     </Link>
                 </Menu.Item>
             </Menu>

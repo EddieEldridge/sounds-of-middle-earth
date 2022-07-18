@@ -81,7 +81,7 @@ export const LOTRMap = (props: any) => {
                     center={[MAP_Y / 3.8, MAP_X / 1.85]}
                     zoomSnap={0.2}
                     zoomDelta={0.2}
-                    maxZoom={3}
+                    maxZoom={-0.5}
                     minZoom={-3}
                     zoom={-1}
                     wheelDebounceTime={0}

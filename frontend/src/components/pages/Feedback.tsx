@@ -4,12 +4,13 @@ import { Layout ,
     Button,
     Input,
 } from 'antd';
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 import './../../assets/less/App.less';
 import '../../assets/less/StandardLayout.less';
 import '../../assets/less/Feedback.less';
 import { log } from '../../lib/utils';
+import { publishMessage } from '../../lib/sns';
 
 const { Header, Footer, Content } = Layout;
 
@@ -111,7 +112,7 @@ export const Feedback = (props: any) => {
     async function handleSubmit(values: any) {
         setLoading(true);
         log(values, 'green');
-        // await publishMessage(values.toString());
+        await publishMessage(values.toString());
         setLoading(false);
     }
 

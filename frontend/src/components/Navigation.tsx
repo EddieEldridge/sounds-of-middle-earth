@@ -16,19 +16,25 @@ import theRing from '../assets/img/LOTRIcon.png';
 const { Sider } = Layout;
 
 export const Navigation = (props: any) => {
-    const [collapsed, toggleCollapsed] = useState(true);
+    const [collapsed, setCollapsed] = useState(true);
     const [selectedKeys, setSelectedKeys] = useState(['map']);
 
-    const toggleMenu = () => {
-        if(collapsed) {
-            toggleCollapsed(false);
-        } else {
-            toggleCollapsed(true);
-        }
-    };
+    // const toggleMenu = () => {
+    //     if(collapsed) {
+    //         console.log('Toggling collapsed to false');
+    //         setCollapsed(false);
+
+    //         setTimeout(() => {
+    //         }, 1000);
+    //     } else {
+    //         setCollapsed(true);
+    //         console.log('Toggling collapsed to true');
+
+    //     }
+    // };
 
     return (
-        <Sider collapsible collapsed={collapsed} onCollapse={toggleMenu} onMouseOver={toggleMenu} onMouseOut={toggleMenu}>
+        <Sider collapsible collapsed={collapsed} onMouseOver={()=>setCollapsed(false)} onMouseOut={()=>setCollapsed(true)}>
             <img src={theRing} className="website-logo"/>
             <Menu
                 id="sideBar"
@@ -47,22 +53,28 @@ export const Navigation = (props: any) => {
                     </Link>
                 </Menu.Item>
                 <Menu.Item key="credits" icon={<HeartOutlined />}>
-                    {/* <Link to="credits"> */}
-                    <Link to="/">
-                        Coming Soon
+                    <Link to="credits">
+                        Credits
                     </Link>
+                    {/* <Link to="/">
+                        Coming Soon
+                    </Link> */}
                 </Menu.Item>
                 <Menu.Item key="source" icon={<BranchesOutlined />}>
-                    {/* <Link to="source"> */}
-                    <Link to="/">
-                        Coming Soon
+                    <Link to="source">
+                        Source
                     </Link>
+                    {/* <Link to="/">
+                        Coming Soon
+                    </Link> */}
                 </Menu.Item>
                 <Menu.Item key="feedback" icon={<MailOutlined />}>
-                    {/* <Link to="feedback"> */}
-                    <Link to="/">
-                        Coming Soon
+                    <Link to="feedback">
+                        Feedback
                     </Link>
+                    {/* <Link to="/">
+                        Coming Soon
+                    </Link> */}
                 </Menu.Item>
             </Menu>
         </Sider>

@@ -5,12 +5,12 @@ const { Header, Footer, Content } = Layout;
 
 export const Source = (props: any) => {
     return (
-        <Layout className='layout'>
-            <Header className='header'>Source</Header>
-            <Content className='content'>
-                Coming Soon
+        <Layout className="layout">
+            <Header className="header">Source</Header>
+            <Content className="content">
+                <h2>Coming Soon</h2>
             </Content>
-            <Footer className='footer'></Footer>
+            <Footer className="footer"></Footer>
         </Layout>
     );
 };

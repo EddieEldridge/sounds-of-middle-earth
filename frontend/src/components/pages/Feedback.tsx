@@ -20,7 +20,7 @@ const LocationForm = (props: any) => {
         <Form.Item>
             <Form.Item
                 name="url"
-                label="Video URL"
+                label="Video Url"
                 rules={[{ required: true }, { type: 'url', warningOnly: true }, { type: 'string', min: 6 }]}
             >
                 <Input placeholder="https://www.youtube.com/watch?v=qjf9pGymiuo" />
@@ -30,7 +30,7 @@ const LocationForm = (props: any) => {
                 label="Location on Map"
                 rules={[{ required: true }, { type: 'string', min: 6 }]}
             >
-                <Input placeholder="123, 456" />
+                <Input placeholder="e.g '123, 456'. You can get X,Y co-ordinates by clicking on the map location." />
             </Form.Item>
         </Form.Item>
     );
@@ -44,14 +44,7 @@ const FeatureForm = (props: any) => {
                 label="Requested Feature"
                 rules={[{ required: true }]}
             >
-                <Input placeholder="Requested feature..." />
-            </Form.Item>
-            <Form.Item
-                name="url"
-                label="Improvement"
-                rules={[{ required: true }]}
-            >
-                <Input placeholder="input placeholder" />
+                <Input placeholder="Suggest a feature or an improvement to the site..." />
             </Form.Item>
         </Form.Item>
     );
@@ -65,7 +58,7 @@ const BugForm = (props: any) => {
                 label="Bug Description"
                 rules={[{ required: true }]}
             >
-                <Input placeholder="input placeholder" />
+                <Input placeholder="Describe in as much detail as possible what the bug was and how it happened" />
             </Form.Item>
         </Form.Item>
     );

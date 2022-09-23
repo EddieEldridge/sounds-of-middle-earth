@@ -1,6 +1,38 @@
-.feedbackForm {
-    padding-left: 28vw;
-    padding-top: 150px;
-    border-style: 5px solid black;
+@font-face {
+    font-family: 'Aniron';
+    src:
+        url('../fonts/aniron.ttf') format('truetype'),
 }
 
+.feedbackForm {
+    padding-left: 30%;
+    padding-top: 3%;
+    filter: drop-shadow(2px 2px 2px #000000);
+}
+
+.ant-form-large .ant-form-item-label > label {
+    height: 50px;
+    font-size: 20px;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    font-family: 'Aniron', sans-serif;
+    color: rgb(251, 168, 0);
+    filter: drop-shadow(2px 2px 2px #000000);
+}
+
+#content > section > section > main > form > div.ant-row.ant-form-item.formItem > div.ant-col.ant-col-4.ant-form-item-label {
+    width: 300px;
+}
+
+.feedbackSubmit {
+    color: white;
+    font-family: 'Aniron', sans-serif;
+    width: 200px;
+    height: 50px;
+    font-size: 22px;
+}
+
+.feedbackSubmit:hover {
+    transform: scale(1.2);
+    filter: drop-shadow(2px 2px 2px #000000);
+}

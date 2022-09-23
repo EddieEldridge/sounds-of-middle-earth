@@ -36,10 +36,12 @@ export const LOTRMap = (props: any) => {
         const popup = L.popup();
 
         function onMapClick(e: { latlng: L.LatLngExpression }) {
+            const cords = getXyCoords(e.latlng.toString());
+
             popup
                 .setLatLng(e.latlng)
                 .setContent(`
-                You clicked the map at ${getXyCoords(e.latlng.toString())}
+                You clicked the map at ${cords}
                 `)
                 .openOn(map);
         }
@@ -82,7 +84,7 @@ export const LOTRMap = (props: any) => {
                     zoomSnap={0.2}
                     zoomDelta={0.2}
                     maxZoom={-0.5}
-                    minZoom={-3}
+                    minZoom={-2.5}
                     zoom={-1}
                     wheelDebounceTime={0}
                     wheelPxPerZoomLevel={120}

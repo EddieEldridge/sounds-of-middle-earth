@@ -29,12 +29,18 @@ export function log(message: any, colour?: string) {
     }
 }
 
-export function getXyCoords(latLngString: string): string | undefined {
+export function getXyCoords(latLngString: string): string {
     try {
-        return latLngString.match(/\(([^)]+)\)/)[1];
+        const match = latLngString.match(/\(([^)]+)\)/);
+
+        if(match) {
+            return match[1];
+        } else {
+            return 'No coordinates found';
+        }
     } catch (error) {
         log(error, 'red');
 
-        return undefined;
+        return 'Unknown coordinates';
     }
 }

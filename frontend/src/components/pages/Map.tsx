@@ -74,17 +74,20 @@ export const LOTRMap = (props: any) => {
     //   }
 
     return (
-        <div id='mainMap'>
+        <div id='mapBackground'>
             <div id="mapContainer">
                 <MapContainer
                     id="lotrMap"
+                    bounds={mapBounds}
+                    maxBounds={mapBounds}
+                    maxBoundsViscosity={100}
                     scrollWheelZoom={true}
                     zoomAnimation={true}
-                    center={[MAP_Y / 3.8, MAP_X / 1.85]}
+                    center={mapBounds.getCenter()}
                     zoomSnap={0.2}
                     zoomDelta={0.2}
                     maxZoom={-0.5}
-                    minZoom={-2.5}
+                    minZoom={-2.6}
                     zoom={-1}
                     wheelDebounceTime={0}
                     wheelPxPerZoomLevel={120}
@@ -118,7 +121,10 @@ export const LOTRMap = (props: any) => {
                                 icon={iconLOTR}
                                 position={marker.location}
                             >
-                                <Popup className='marker-popup'>
+                                <Popup
+                                    className='marker-popup'
+                                    keepInView={true}
+                                >
                                     <LiteYouTubeEmbed
                                         id={marker.url}
                                         title={marker.name}

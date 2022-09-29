@@ -26,17 +26,17 @@ To build the project and run the dev server you can run
 
 2. Start the dev server
 
-  
+
     ```npm run start```
 
 3. Open the application in your browser
 
 
     ```localhost:8080```
-    
+
  ## Contact
  Feel free to get in touch!
- - Discord (**Medik#0001**) 
+ - Discord (**Medik#0001**)
  - Email (**eddie.eldridge@hotmail.com**)
 
 ## Credits
@@ -48,6 +48,7 @@ To build the project and run the dev server you can run
 ## Technologies
 - React
 - TypeScript
+- Vite
 - Node
 - AWS
 - Terraform

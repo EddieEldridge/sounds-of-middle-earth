@@ -77,7 +77,7 @@ jobs:
         at: ~/sounds-of-middle-earth/frontend
     - restore_cache:
         key: v1-pkg-cache
-    - run:  go get -v github.com/bep/s3deploy/v2
+    - run: go install github.com/bep/s3deploy/v2@latest
     - save_cache:
         key: v1-pkg-cache
         paths:

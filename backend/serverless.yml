@@ -10,13 +10,66 @@ provider:
   stage: dev
   region: eu-west-1
   memorySize: 128
-  # vpc:
-  #   securityGroupIds:
-  #     - securityGroupId1
-  #     - securityGroupId2
-  #   subnetIds:
-  #     - subnet-1
-  #     - subnet-2
+  # profile: 'personal'
+
+resources:
+  Resources:
+    # Creates an IAMRole that only allows the Lambda functions defined here
+    # to be invoked by the S3 bucket containing the website
+    S3OnlyAccessRole:
+      Type: AWS::IAM::Role
+      Properties:
+        RoleName: some-s3-access-only-role
+        AssumeRolePolicyDocument:
+          Version: '2012-10-17'
+          Statement:
+            - Effect: Allow
+              Principal:
+                Service:
+                  - lambda.amazonaws.com
+              Action: sts:AssumeRole
+        # note that these rights are needed if you want your function to be able to communicate with resources within your vpc
+        ManagedPolicyArns:
+          - arn:aws:iam::aws:policy/service-role/AWSLambdaVPCAccessExecutionRole
+        Policies:
+          - PolicyName: some-s3-access-only-role-policy
+            PolicyDocument:
+              Version: '2012-10-17'
+              Statement:
+                - Effect: Allow # note that these rights are given in the default policy and are required if you want logs out of your lambda(s)
+                  Action:
+                    - logs:CreateLogGroup
+                    - logs:CreateLogStream
+                    - logs:PutLogEvents
+                  Resource:
+                    - 'Fn::Join':
+                      - ':'
+                      -
+                        - 'arn:aws:logs'
+                        - Ref: 'AWS::Region'
+                        - Ref: 'AWS::AccountId'
+                        - 'log-group:/aws/lambda/*:*:*'
+                -  Effect: "Allow"
+                   Action:
+                     - "s3:PutObject"
+                   Resource:
+                     Fn::Join:
+                       - ""
+                       - - "arn:aws:s3:::"
+                         - "Ref" : "ServerlessDeploymentBucket"
+                - Effect: Deny
+                  Principal: '*'
+                  Action:
+                    - "lambda:InvokeFunction"
+                  Resource:
+                    Fn::Join:
+                      - ""
+                      - - "arn:aws:s3:::"
+                        - "Ref" : "ServerlessDeploymentBucket"
+                  Condition:
+                    StringNotLike:
+                      aws:PrincipalArn:
+                        - 'arn:aws:s3:::sounds-of-middle-earth.com'
 
 functions:
   getApiInfo:

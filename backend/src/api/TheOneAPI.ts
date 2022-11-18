@@ -1,6 +1,6 @@
-import LOTRQuote from './types/LordOfTheRings';
-import { LOTR_API_TOKEN } from './utils/Env';
-import HTTPClient from './utils/HttpClient';
+import LOTRQuote from '../types/LordOfTheRings';
+import { LOTR_API_TOKEN } from '../utils/Env';
+import HTTPClient from '../utils/HttpClient';
 
 const httpClient = new HTTPClient('https://the-one-api.dev/v2', LOTR_API_TOKEN);
 

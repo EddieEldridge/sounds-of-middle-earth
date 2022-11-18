@@ -66,7 +66,8 @@ resources:
                       - - "arn:aws:s3:::"
                         - "Ref" : "ServerlessDeploymentBucket"
                   Condition:
-                    ArnEquals:
+                    StringNotLike:
+                      aws:PrincipalArn:
                         - 'arn:aws:s3:::sounds-of-middle-earth.com'
 
 functions:

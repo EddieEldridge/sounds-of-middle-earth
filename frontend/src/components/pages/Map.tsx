@@ -14,6 +14,11 @@ import { getMapLocation as getMapMarkers, getXyCoords, log } from '../../lib/uti
 import { MapLocation } from '../../lib/interfaces';
 
 const mapBounds: LatLngBoundsExpression = new LatLngBounds([0, 0], [MAP_Y, MAP_X]);
+const padding: LatLngBoundsExpression = new LatLngBounds([150, 150], [150, 150]);
+// const maxMapBounds: LatLngBoundsExpression = new LatLngBounds(
+//     [(MAP_Y/2), (MAP_X/2)],
+//     [MAP_Y+(MAP_Y/3),
+//         MAP_X+(MAP_X/3)]);
 
 export const LOTRMap = (props: any) => {
     const [mapIsLoaded, setMapIsLoaded] = useState(false);
@@ -37,11 +42,20 @@ export const LOTRMap = (props: any) => {
 
         function onMapClick(e: { latlng: L.LatLngExpression }) {
             const cords = getXyCoords(e.latlng.toString());
+            const roundedCoords: number[] = [];
+
+            cords.forEach(element => {
+                const roundedCoord = Math.round(parseInt(element, 10));
+
+                roundedCoords.push(roundedCoord);
+            });
+
+            console.log(cords);
 
             popup
                 .setLatLng(e.latlng)
                 .setContent(`
-                You clicked the map at ${cords}
+                You clicked the map at ${roundedCoords.toString()}
                 `)
                 .openOn(map);
         }
@@ -77,6 +91,7 @@ export const LOTRMap = (props: any) => {
         <div id='mapBackground'>
             <div id="mapContainer">
                 <MapContainer
+                    zoomControl={false}
                     id="lotrMap"
                     bounds={mapBounds}
                     maxBounds={mapBounds}

@@ -112,39 +112,41 @@ export const Feedback = (props: any) => {
     return (
         <Layout className='layout'>
             <Header className='header'>Feedback</Header>
-            <Content className='content'>
-                <Form
-                    className='feedbackForm'
-                    labelCol={{ span: 4 }}
-                    wrapperCol={{ span: 14 }}
-                    layout="vertical"
-                    size={'large'}
-                    onFinish={handleSubmit}
-                >
-                    <Form.Item className='formItem' label="Feedback Type">
-                        <Select
-                            defaultValue={'location'}
-                            onSelect={(choice: string) => setFeedbackChoice(choice)}
-                        >
-                            <Select.Option value="location">Suggest a location</Select.Option>
-                            <Select.Option value="feature">Suggest a feature</Select.Option>
-                            <Select.Option value="bug">Report a bug</Select.Option>
-                            <Select.Option value="general">General feedback</Select.Option>
-                        </Select>
-                        {getFormType()}
-                    </Form.Item>
-                    <Form.Item>
-                        <Button
-                            htmlType="submit"
-                            type='primary'
-                            className='feedbackSubmit'
-                            loading={loading}
-                        >
+            <div id="mapBackground">
+                <Content className='content'>
+                    <Form
+                        className='feedbackForm'
+                        labelCol={{ span: 4 }}
+                        wrapperCol={{ span: 14 }}
+                        layout="vertical"
+                        size={'large'}
+                        onFinish={handleSubmit}
+                    >
+                        <Form.Item className='formItem' label="Feedback Type">
+                            <Select
+                                defaultValue={'location'}
+                                onSelect={(choice: string) => setFeedbackChoice(choice)}
+                            >
+                                <Select.Option value="location">Suggest a location</Select.Option>
+                                <Select.Option value="feature">Suggest a feature</Select.Option>
+                                <Select.Option value="bug">Report a bug</Select.Option>
+                                <Select.Option value="general">General feedback</Select.Option>
+                            </Select>
+                            {getFormType()}
+                        </Form.Item>
+                        <Form.Item>
+                            <Button
+                                htmlType="submit"
+                                type='primary'
+                                className='feedbackSubmit'
+                                loading={loading}
+                            >
                         Submit
-                        </Button>
-                    </Form.Item>
-                </Form>
-            </Content>
+                            </Button>
+                        </Form.Item>
+                    </Form>
+                </Content>
+            </div>
             <Footer className='footer'></Footer>
         </Layout>
     );

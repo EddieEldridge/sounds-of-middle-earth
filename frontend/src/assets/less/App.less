@@ -15,6 +15,11 @@
   background-color: rgb(0, 0, 0);
 }
 
+#content {
+  width: 100vw;
+  position: relative
+}
+
 // Map
 .leaflet-container {
   width: 100vw;
@@ -58,6 +63,7 @@
   background-position: center center;
   width: 100vw;
   height: 100vh;
+  background-color: black !important;
   animation: fadein 2s;
   -moz-animation: fadein 2s; /* Firefox */
   -webkit-animation: fadein 2s; /* Safari and Chrome */
@@ -69,30 +75,73 @@
   background-color: black;
   color: white;
   filter: drop-shadow(2px 2px 2px #000000)
-
 }
 
 // Side Bar
 #sideBar {
   font-family: 'Aniron', sans-serif;
-  background-color: black;
+  position: absolute;
+  z-index: 10;
+  padding-top: 50vh;
+  padding-bottom: 35vh;
+  transform: rotate(180deg);
+  transition: transform 0.5s ease-in-out !important;
 }
 
-.ant-layout-sider-children {
-  background-color: black;
+#sideBar span {
+  padding-left: 12px;
+  font-size: 16px;
+  transform: rotate(180deg);
+}
+
+.ant-menu-item {
+  padding-left: 5px !important;
+  padding-right: 5px !important;
+  height: 60px !important;
+}
+
+.ant-menu.ant-menu-dark {
+  border: 20px solid;
+  border-image-source: url(../img/panel.png);
+  border-image-slice: 100 fill;
+}
+
+.ant-layout-sider-collapsed span {
+  transform: rotate(180deg);
+}
+
+.ant-menu-item a {
+  padding-left: 3px;
+  color: black !important;
+  font-weight: bolder;
 }
 
 .ant-layout-sider-trigger {
-  background-color: black;
-  width: 400px;
+  display: none;
 }
 
-.website-logo {
-  height: 43px;
-  margin: 16px;
-  margin-top: 25px;
-  filter: invert(100%);
+.ant-layout-sider {
+  background: rgba(0, 0, 0, 0);
+  padding-bottom: 0px !important;
 }
+
+.ant-layout {
+  background-color: rgba(0, 0, 0, 0);
+}
+
+#sideBar img {
+  padding: 4px;
+  transform: rotate(180deg);
+  width: 60px;
+  height: 60px;
+}
+
+// .website-logo {
+//   height: 43px;
+//   margin: 16px;
+//   margin-top: 25px;
+//   filter: invert(100%);
+// }
 
 @keyframes fadein {
   from {

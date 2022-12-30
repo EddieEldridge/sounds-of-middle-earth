@@ -29,18 +29,16 @@ export function log(message: any, colour?: string) {
     }
 }
 
-export function getXyCoords(latLngString: string): string {
+export function getXyCoords(latLngString: string): string[] {
     try {
         const match = latLngString.match(/\(([^)]+)\)/);
 
         if(match) {
-            return match[1];
+            return match[1].split(',');
         } else {
-            return 'No coordinates found';
+            return [];
         }
     } catch (error) {
         log(error, 'red');
-
-        return 'Unknown coordinates';
     }
 }

@@ -6,10 +6,12 @@ const { Header, Footer, Content } = Layout;
 export const Source = (props: any) => {
     return (
         <Layout className="layout">
-            <Header className="header">Source</Header>
-            <Content className="content">
-                <h2>Coming Soon</h2>
-            </Content>
+            <Header className="header">Settings</Header>
+            <div id="mapBackground" >
+                <Content className="content">
+                    <h2>Coming Soon</h2>
+                </Content>
+            </div>
             <Footer className="footer"></Footer>
         </Layout>
     );

@@ -147,7 +147,9 @@ export const Feedback = (props: any) => {
                     </Form>
                 </Content>
             </div>
-            <Footer className='footer'></Footer>
+            <Footer className='footer'>
+                {/* Content */}
+            </Footer>
         </Layout>
     );
 };

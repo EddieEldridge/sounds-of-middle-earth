@@ -17,7 +17,7 @@
 
 #content {
   width: 100vw;
-  position: relative
+  position: relative;
 }
 
 // Map
@@ -30,9 +30,6 @@
     inset 0 0 300px rgb(0, 0, 0),
     inset 0 0 300px rgb(0, 0, 0);
   backdrop-filter: blur(5px);
-}
-
-#mapContainer {
 }
 
 ::-webkit-scrollbar {
@@ -64,10 +61,6 @@
   width: 100vw;
   height: 100vh;
   background-color: black !important;
-  animation: fadein 2s;
-  -moz-animation: fadein 2s; /* Firefox */
-  -webkit-animation: fadein 2s; /* Safari and Chrome */
-  -o-animation: fadein 2s; /* Opera */
 }
 
 .leaflet-bar a,
@@ -77,14 +70,16 @@
   filter: drop-shadow(2px 2px 2px #000000)
 }
 
+
 // Side Bar
 #sideBar {
   font-family: 'Aniron', sans-serif;
   position: absolute;
   z-index: 10;
-  padding-top: 50vh;
-  padding-bottom: 35vh;
+  margin-top: 30vh;
+  margin-bottom: 10vh;
   transform: rotate(180deg);
+  filter: drop-shadow(5px 5px 30px black);
 }
 
 #sideBar span {
@@ -96,6 +91,12 @@
   padding-left: 5px !important;
   padding-right: 5px !important;
   height: 60px !important;
+}
+
+.leaflet-marker-icon:hover {
+  filter: brightness(1.5);
+  filter: drop-shadow();
+  filter: saturate(1.5);
 }
 
 .ant-menu.ant-menu-dark {
@@ -144,36 +145,3 @@
 //   margin-top: 25px;
 //   filter: invert(100%);
 // }
-
-@keyframes fadein {
-  from {
-      opacity:0;
-  }
-  to {
-      opacity:1;
-  }
-}
-@-moz-keyframes fadein { /* Firefox */
-  from {
-      opacity:0;
-  }
-  to {
-      opacity:1;
-  }
-}
-@-webkit-keyframes fadein { /* Safari and Chrome */
-  from {
-      opacity:0;
-  }
-  to {
-      opacity:1;
-  }
-}
-@-o-keyframes fadein { /* Opera */
-  from {
-      opacity:0;
-  }
-  to {
-      opacity: 1;
-  }
-}

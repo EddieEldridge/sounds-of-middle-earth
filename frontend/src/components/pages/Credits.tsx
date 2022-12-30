@@ -10,7 +10,7 @@ export const Credits = (props: any) => {
             <Header className='header'>Credits</Header>
             <div id="mapBackground" >
                 <Content className="content">
-                    <h2>My most sincere and genuine thanks goes to</h2>
+                    <h2>My most sincere and genuine thanks to</h2>
                     <ul>
                         <li><a href="https://www.youtube.com/channel/UC4yJ5i9YkhahKCd1KH6xAyg" className="goldenHostLink">The Golden Host</a></li>
                         <li><a href="https://www.youtube.com/channel/UCjrlJLts89CTTqRD4B6vGxQ" className="lotroCollectionLink">LOTRO: Soundtrack Collection</a></li>

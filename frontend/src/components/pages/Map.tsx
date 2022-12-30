@@ -102,9 +102,9 @@ export const LOTRMap = (props: any) => {
                     zoomSnap={0.2}
                     zoomDelta={0.2}
                     maxZoom={-0.5}
-                    minZoom={-2.6}
+                    minZoom={-3}
                     zoom={-1}
-                    wheelDebounceTime={0}
+                    wheelDebounceTime={0.3}
                     wheelPxPerZoomLevel={120}
                     ref={async (map) => {
                         if(map) {

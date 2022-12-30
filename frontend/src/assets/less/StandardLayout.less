@@ -21,6 +21,7 @@
     position: absolute;
     z-index: 1;
     background-color: transparent;
+    padding-top: 3vh;
 }
 .content {
     padding: 100px;
@@ -36,6 +37,10 @@
       inset 0 0 300px rgb(0, 0, 0),
       inset 0 0 300px rgb(0, 0, 0);
     backdrop-filter: blur(5px);
+    animation: fadein 3s;
+    -moz-animation: fadein 3s; /* Firefox */
+    -webkit-animation: fadein 3s; /* Safari and Chrome */
+    -o-animation: fadein 3s; /* Opera */
 }
 
 .content h2 {
@@ -96,13 +101,52 @@
 }
 
 .footer {
+    margin-top: 87vh;
+    z-index: 2;
+    position: absolute;
     width: 100%;
-    height: 10.7vh;
+    height: 10vh;
     align-content: center;
     font-size: small;
-    background-color: #000000;
+    background: transparent;
+    color: white;
+    font-size: 50px;
 }
 
 .feedbackForm {
     padding-top: 0%;
 }
+
+
+@keyframes fadein {
+    from {
+        opacity:0.1;
+    }
+    to {
+        opacity:1;
+    }
+  }
+  @-moz-keyframes fadein { /* Firefox */
+    from {
+      opacity:0.1;
+    }
+    to {
+        opacity:1;
+    }
+  }
+  @-webkit-keyframes fadein { /* Safari and Chrome */
+    from {
+      opacity:0.1;
+    }
+    to {
+        opacity:1;
+    }
+  }
+  @-o-keyframes fadein { /* Opera */
+    from {
+      opacity:0.1;
+    }
+    to {
+        opacity: 1;
+    }
+  }

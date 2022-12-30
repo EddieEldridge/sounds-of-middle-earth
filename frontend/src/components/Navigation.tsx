@@ -19,7 +19,7 @@ export const Navigation = (props: any) => {
     const [selectedKeys, setSelectedKeys] = useState(['map']);
 
     return (
-        <div id="sideBar">
+        <div id="sideBar" className={collapsed ? 'collapsedSidebar' : 'sidebar'}>
             <Sider
                 reverseArrow={true}
                 collapsedWidth={100}

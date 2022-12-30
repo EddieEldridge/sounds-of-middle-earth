@@ -85,13 +85,11 @@
   padding-top: 50vh;
   padding-bottom: 35vh;
   transform: rotate(180deg);
-  transition: transform 0.5s ease-in-out !important;
 }
 
 #sideBar span {
   padding-left: 12px;
   font-size: 16px;
-  transform: rotate(180deg);
 }
 
 .ant-menu-item {
@@ -106,8 +104,12 @@
   border-image-slice: 100 fill;
 }
 
-.ant-layout-sider-collapsed span {
-  transform: rotate(180deg);
+.collapsedSidebar span {
+  transform: rotate(180deg) !important;
+}
+
+.sidebar span {
+  transform: rotate(180deg) !important;
 }
 
 .ant-menu-item a {

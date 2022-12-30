@@ -11,18 +11,6 @@ export const MapIcon = () => {
     );
 };
 
-export const ScrollIcon = () => {
-    return (
-        <img src='../../assets/img/icons/scroll_icon.png' />
-    );
-};
-
-export const ChestIcon = () => {
-    return (
-        <img src='../../assets/img/icons/chest_icon.png' />
-    );
-};
-
 export const LetterIcon = () => {
     return (
         <img src='../../assets/img/icons/chat_icon.png' />

@@ -82,8 +82,14 @@
   filter: drop-shadow(5px 5px 30px black);
 }
 
-#sideBar span {
-  padding-left: 12px;
+#sideBar a:hover{
+  color: rgba(0, 0, 0, 0.647) !important;
+}
+
+#sideBar a {
+  color: black;
+  font-weight: bolder;
+  padding-left: 15px;
   font-size: 16px;
 }
 
@@ -95,7 +101,6 @@
 
 .leaflet-marker-icon:hover {
   filter: brightness(1.5);
-  filter: drop-shadow();
   filter: saturate(1.5);
 }
 
@@ -113,11 +118,6 @@
   transform: rotate(180deg) !important;
 }
 
-.ant-menu-item a {
-  padding-left: 3px;
-  color: black !important;
-  font-weight: bolder;
-}
 
 .ant-layout-sider-trigger {
   display: none;

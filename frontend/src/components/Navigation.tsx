@@ -22,7 +22,7 @@ export const Navigation = (props: any) => {
         <div id="sideBar" className={collapsed ? 'collapsedSidebar' : 'sidebar'}>
             <Sider
                 reverseArrow={true}
-                collapsedWidth={100}
+                collapsedWidth={90}
                 width={225}
                 collapsible
                 collapsed={collapsed}

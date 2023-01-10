@@ -93,6 +93,7 @@ functions:
     reservedConcurrency: 2
     environment:
       LOTR_API_TOKEN: ${env:LOTR_API_TOKEN}
+      API_GATEWAY_ROOT: ${env:API_GATEWAY_ROOT}
     events:
       - http:
           path: /api/v1/lotr/quote

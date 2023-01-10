@@ -10,10 +10,10 @@ resource "aws_cloudfront_distribution" "frontend_cloudfront_distribution" {
     domain_name = aws_s3_bucket.s3_bucket.website_endpoint
     origin_id   = var.application_subdomain
   }
-  
+
   enabled             = true
   default_root_object = "index.html"
-  
+
   default_cache_behavior {
     viewer_protocol_policy = "redirect-to-https"
     compress               = true
@@ -23,7 +23,7 @@ resource "aws_cloudfront_distribution" "frontend_cloudfront_distribution" {
     min_ttl                = 0
     default_ttl            = 86400
     max_ttl                = 31536000
-    
+
     forwarded_values {
       query_string = false
       cookies {
@@ -31,24 +31,24 @@ resource "aws_cloudfront_distribution" "frontend_cloudfront_distribution" {
       }
     }
   }
-  
+
   custom_error_response {
     error_caching_min_ttl = 3000
     error_code            = 404
     response_code         = 200
     response_page_path    = "/index.html"
   }
-  
+
   aliases = [var.application_subdomain]
-  
+
   restrictions {
     geo_restriction {
       restriction_type = "none"
     }
   }
-  
+
   viewer_certificate {
-    acm_certificate_arn = "arn:aws:acm:us-east-1:775399702380:certificate/80be7dc0-b78c-4710-85d1-c78bbb0092a7"
+    acm_certificate_arn = "arn:aws:acm:eu-west-1:775399702380:certificate/a1f3d8d0-fd91-46e8-a430-60fae8db0133"
     ssl_support_method  = "sni-only"
   }
 }

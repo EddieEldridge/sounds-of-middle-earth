@@ -244,8 +244,8 @@
             "name": "Forochel",
             "url": "3Ku3vXuo_uc",
             "location": [
-                5224,
-                2174
+                5064,
+                2343
             ]
         },
         {
@@ -364,21 +364,160 @@
             "name": "Harad",
             "url": "vM0SkePnTGY",
             "location": [
-                376, 5260
+                376,
+                5260
             ]
         },
         {
             "name": "Minas Morgul",
             "url": "OfNgf78cTzU",
             "location": [
-                1160, 5484
+                1160,
+                5484
             ]
         },
         {
             "name": "Southlands",
             "url": "hEjcQ6O7u6Y",
             "location": [
-                788,6070
+                788,
+                6070
+            ]
+        },
+        {
+            "name": "The Great Lodge",
+            "url": "iuvMKtkkhEc",
+            "location": [
+                5328,
+                2314
+            ]
+        },
+        {
+            "name": "Trollshaws (Night)",
+            "url": "d3Ij_6DBChQ",
+            "location": [
+                4037,
+                3924
+            ]
+        },
+        {
+            "name": "Docks of Lothlorien",
+            "url": "_ZffUpDXvZ8",
+            "location": [
+                3082,
+                4586
+            ]
+        },
+        {
+            "name": "Meadhall of Snowbourn",
+            "url": "xg_IlkX8Jzs",
+            "location": [
+                1567,
+                4868
+            ]
+        },
+        {
+            "name": "Paths of the Dead",
+            "url": "hdEPCKdxKRU",
+            "location": [
+                1577,
+                4428
+            ]
+        },
+        {
+            "name": "Misty Mountains (Day)",
+            "url": "ct0WQx2IMzo",
+            "location": [
+                3790,
+                4326
+            ]
+        },
+        {
+            "name": "Taverns of Yondershire",
+            "url": "Nua4DB3GQUM",
+            "location": [
+                3964,
+                2114
+            ]
+        },
+        {
+            "name": "Wildwood (Day)",
+            "url": "IGpeUio0aTs",
+            "location": [
+                3942,
+                2712
+            ]
+        },
+        {
+            "name": "Thorin's Gate",
+            "url": "XCipjS0d7ps",
+            "location": [
+                4936,
+                1416
+            ]
+        },
+        {
+            "name": "The Old Forest",
+            "url": "SNt7w46YXH8",
+            "location": [
+                3696,
+                3060
+            ]
+        },
+        {
+            "name": "Cape of Belfalas (Day)",
+            "url": "I4VRfWsf8X8",
+            "location": [
+                1066,
+                3428
+            ]
+        },
+        {
+            "name": "Grey Havens",
+            "url": "LQaVUkm1MG8",
+            "location": [
+                3920,
+                1626
+            ]
+        },
+        {
+            "name": "Rivendell",
+            "url": "62j1xAdYKAQ",
+            "location": [
+                3988,
+                4118
+            ]
+        },
+        {
+            "name": "Vales of Anduin",
+            "url": "p2HKwv9u5pY",
+            "location": [
+                3781,
+                4819
+            ]
+        },
+        {
+            "name": "Weathertop",
+            "url": "TlOqVQtKP8k",
+            "location": [
+                3934,
+                3327
+            ]
+        },
+        {
+            "name": "Swanfleet",
+            "url": "8Mi0CjY-W3Y",
+            "location": [
+                3232,
+                3338
+            ]
+        },
+        {
+            "name": "Court of Seregost",
+            "url": "gjfFYVXZbaA",
+            "location": [
+                1491,
+                7025
             ]
         }
     ]

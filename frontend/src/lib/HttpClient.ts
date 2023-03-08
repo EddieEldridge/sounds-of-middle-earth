@@ -39,12 +39,13 @@ export default class HTTPClient {
     }
 
     // POST
-    async POST(endpoint: string): Promise<any> {
+    async POST(endpoint: string, data: any): Promise<any> {
         console.log('POST: ' + this.url + endpoint);
         axios.post(this.url + endpoint, {
             headers: {
                 Authorization: `Basic ${this.token}`
-            }
+            },
+            data: data
         })
             .then((response) => {
                 return response;

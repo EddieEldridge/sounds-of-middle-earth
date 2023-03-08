@@ -1,19 +1,26 @@
 import  { SNSClient ,PublishCommand } from '@aws-sdk/client-sns';
+import { APIGatewayProxyEvent, Context, APIGatewayProxyResult, Handler } from 'aws-lambda';
 
 import { AWS_REGION, DEFAULT_HEADERS, TOPIC_ARN } from '../Constants';
 
 const snsClient = new SNSClient({ region: AWS_REGION });
 
-export async function publishSNSMessage(message: string) {
-    const snsParams = {
-        Message: message,
-        TopicArn: TOPIC_ARN
-    };
-
+export const publishSNSMessage: Handler = async (event: APIGatewayProxyEvent, context: Context): Promise<APIGatewayProxyResult> => {
     try {
-        const data = await snsClient.send(new PublishCommand(snsParams));
+        if(!event || !event.body) {
+            throw new Error('No event body');
+        }
 
-        console.log(`Publishing SNS message: ${message}`, 'green');
+        const content = JSON.parse(event?.body);
+
+        const snsParams = {
+            Message: content.message,
+            TopicArn: TOPIC_ARN
+        };
+
+        console.log(`Publishing SNS message: ${content.message}`, 'green');
+
+        const data = await snsClient.send(new PublishCommand(snsParams));
 
         return {
             headers: DEFAULT_HEADERS,
@@ -29,4 +36,4 @@ export async function publishSNSMessage(message: string) {
             body: JSON.stringify(`Internal Server Error: ${error}`)
         };
     }
-}
+};

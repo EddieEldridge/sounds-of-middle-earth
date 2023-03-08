@@ -93,9 +93,21 @@ functions:
     reservedConcurrency: 2
     environment:
       LOTR_API_TOKEN: ${env:LOTR_API_TOKEN}
-      API_GATEWAY_ROOT: ${env:API_GATEWAY_ROOT}
     events:
       - http:
           path: /api/v1/lotr/quote
           method: GET
+          cors: true
+
+  publishSnsMessage:
+    description: Publishes an SNS Message
+    name: some-v1-post-sns-message
+    handler: src/handlers/PublishSNSMessage.publishSNSMessage
+    memorySize: 512
+    timeout: 5
+    reservedConcurrency: 2
+    events:
+      - http:
+          path: /api/v1/sns/message
+          method: POST
           cors: true

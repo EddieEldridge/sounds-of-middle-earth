@@ -7,7 +7,7 @@ const httpClient = new HTTPClient(BASE_URL, '');
 export async function publishMessage(message: string) {
     try {
         const data = {
-            message: message
+            message: JSON.stringify(message)
         };
 
         log(`Publishing SNS message: ${message}`, 'green');

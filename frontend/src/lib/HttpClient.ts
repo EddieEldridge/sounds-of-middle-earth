@@ -2,7 +2,6 @@ import axios, { AxiosRequestConfig } from 'axios';
 
 import { log } from './utils';
 
-
 export default class HTTPClient {
     url: string;
     token: string;

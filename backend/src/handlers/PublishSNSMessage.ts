@@ -1,6 +1,6 @@
 import  { SNSClient ,PublishCommand } from '@aws-sdk/client-sns';
 
-import { AWS_REGION, TOPIC_ARN } from '../Constants';
+import { AWS_REGION, DEFAULT_HEADERS, TOPIC_ARN } from '../Constants';
 
 const snsClient = new SNSClient({ region: AWS_REGION });
 
@@ -11,14 +11,22 @@ export async function publishSNSMessage(message: string) {
     };
 
     try {
-        // TO-DO
-        // Make this call the lambda functions I setup
-        // Put the lambda functions in the same VPC
-        // "if you update the resource policy for the lambda, It should only allow the website to trigger the lambda function"
         const data = await snsClient.send(new PublishCommand(snsParams));
 
         console.log(`Publishing SNS message: ${message}`, 'green');
+
+        return {
+            headers: DEFAULT_HEADERS,
+            statusCode: 200,
+            body: JSON.stringify(`Successfully sent SNS Message: ${data}`)
+        };
     } catch (error) {
         console.log(`Error publishing SNS message: ${error}`, 'red');
+
+        return {
+            headers: DEFAULT_HEADERS,
+            statusCode: 500,
+            body: JSON.stringify(`Internal Server Error: ${error}`)
+        };
     }
 }

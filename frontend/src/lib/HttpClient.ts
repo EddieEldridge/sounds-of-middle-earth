@@ -1,10 +1,7 @@
-import axios from 'axios';
+import axios, { AxiosRequestConfig } from 'axios';
 
 import { log } from './utils';
 
-const DEFAULT_HEADERS = {
-
-}
 
 export default class HTTPClient {
     url: string;
@@ -18,11 +15,14 @@ export default class HTTPClient {
     // GET
     async GET(endpoint: string): Promise<any> {
         console.log('GET: ' + this.url + endpoint);
+        let axiosConfig: AxiosRequestConfig = {};
+
+        if (this.token !== '') {
+            axiosConfig = { headers: { Authorization: `Bearer ${this.token}` } };
+        }
 
         try {
-            const response = await axios.get(
-                this.url + endpoint,
-                { headers: { Authorization: `Bearer ${this.token}` } });
+            const response = await axios.get(this.url + endpoint, axiosConfig);
 
             // Print the response
             log(response);
@@ -40,17 +40,24 @@ export default class HTTPClient {
 
     // POST
     async POST(endpoint: string, data: any): Promise<any> {
-        console.log('POST: ' + this.url + endpoint);
-        axios.post(this.url + endpoint, {
-            headers: {
-                Authorization: `Basic ${this.token}`
-            },
-            data: data
-        })
-            .then((response) => {
-                return response;
-            });
+        try {
+            console.log('POST: ' + this.url + endpoint);
 
-        return;
+            let axiosConfig: AxiosRequestConfig = {};
+
+            if (this.token !== '') {
+                axiosConfig = { headers: { Authorization: `Bearer ${this.token}` } };
+            }
+
+            const response = await axios.post(this.url + endpoint, axiosConfig, data);
+
+            if (response.status === 200) {
+                return response.data;
+            } else {
+                return response.data.error;
+            }
+        } catch (error) {
+            console.log('Axios POST Error: ' + error);
+        }
     }
 }

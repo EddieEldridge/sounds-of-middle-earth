@@ -12,7 +12,7 @@ export async function publishMessage(message: string) {
 
         log(`Publishing SNS message: ${message}`, 'green');
 
-        const response = httpClient.POST(BASE_URL+'/sns/message', data);
+        const response = httpClient.POST('/sns/message', data);
 
         log(response);
     } catch (error) {

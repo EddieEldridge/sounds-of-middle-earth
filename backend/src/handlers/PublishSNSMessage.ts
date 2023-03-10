@@ -13,8 +13,13 @@ export const publishSNSMessage: Handler = async (event: APIGatewayProxyEvent, co
 
         const content = JSON.parse(event?.body);
 
+        const textMessage = `
+            ====== SOUNDS OF MIDDLE EARTH ======
+            FEEDBACK: ${JSON.stringify(content.message)}
+        `;
+
         const snsParams = {
-            Message: content.message,
+            Message: textMessage,
             TopicArn: TOPIC_ARN
         };
 

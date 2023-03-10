@@ -48,7 +48,7 @@ export default class HTTPClient {
                 axiosConfig = { headers: { Authorization: `Bearer ${this.token}` } };
             }
 
-            const response = await axios.post(this.url + endpoint, axiosConfig, data);
+            const response = await axios.post(this.url + endpoint, JSON.stringify(data.body), axiosConfig);
 
             if (response.status === 200) {
                 return response.data;

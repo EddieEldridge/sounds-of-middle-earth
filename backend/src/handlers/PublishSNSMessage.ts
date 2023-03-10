@@ -7,8 +7,8 @@ const snsClient = new SNSClient({ region: AWS_REGION });
 
 export const publishSNSMessage: Handler = async (event: APIGatewayProxyEvent, context: Context): Promise<APIGatewayProxyResult> => {
     try {
-        if(!event || !event.body) {
-            throw new Error('No event body');
+        if(!event.body) {
+            throw new Error(`No event body found on event: ${event}`);
         }
 
         const content = JSON.parse(event?.body);

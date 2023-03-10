@@ -6,13 +6,15 @@ const httpClient = new HTTPClient(BASE_URL, '');
 
 export async function publishMessage(message: string) {
     try {
-        const data = {
-            message: JSON.stringify(message)
-        };
-
         log(`Publishing SNS message: ${message}`, 'green');
 
-        const response = httpClient.POST('/sns/message', data);
+        const requestData = {
+            body: {
+                message: message
+            }
+        };
+
+        const response = httpClient.POST('/sns/message', requestData);
 
         log(response);
     } catch (error) {

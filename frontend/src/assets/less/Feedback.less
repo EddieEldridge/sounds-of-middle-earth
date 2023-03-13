@@ -6,12 +6,52 @@
 
 .feedbackForm {
     padding-left: 30%;
-    padding-top: 3%;
+    padding-top: 6%;
     filter: drop-shadow(2px 2px 2px #000000);
+}
+
+.ant-input, .ant-select-selector, #feedbackSelector {
+    border-image-source: url(../img/panel.png) !important;
+    border-image-slice: 110 fill !important;
+    color: black !important;
+}
+
+.ant-select-selection-item{
+    color: black !important;
+    border-image-source: url(../img/panel.png) !important;
+    border-image-slice: 110 fill !important;
+}
+
+.ant-select-item:hover {
+    color: rgb(78, 78, 0) !important;
+
+}
+
+.ant-select-item, .ant-select-dropdown {
+    color: black !important;
+    border-image-source: url(../img/panel.png) !important;
+    border-image-slice: 110 fill !important;
 }
 
 label, .ant-form-item-label {
     min-width: 500px;
+}
+.anticon.ant-notification-notice-icon-success  {
+    color: rgb(0, 82, 5) !important;
+}
+
+.ant-form-item-control-input-content ::placeholder {
+    color: rgba(0, 0, 0, 0.585) !important;
+}
+.ant-notification-notice {
+    border-image-source: url(../img/panel.png);
+    border-image-slice: 100 fill;
+    border-radius: 50px;
+    background: #481700aa !important;
+}
+
+.ant-notification-notice-message, .ant-notification-notice-description {
+    color: black !important;
 }
 
 .ant-form-large .ant-form-item-label > label {
@@ -29,14 +69,17 @@ label, .ant-form-item-label {
 }
 
 .feedbackSubmit {
-    color: white;
+    border-image-source: url(../img/panel.png);
+    border-image-slice: 100 fill;
+    color: black;
     font-family: 'Aniron', sans-serif;
-    width: 200px;
+    width: 150px;
     height: 50px;
-    font-size: 22px;
+    font-size: 20px;
 }
 
 .feedbackSubmit:hover {
     transform: scale(1.2);
-    filter: drop-shadow(2px 2px 2px #000000);
+    color: rgb(124, 81, 0);
+    // filter: drop-shadow(2px 2px 2px #000000);
 }

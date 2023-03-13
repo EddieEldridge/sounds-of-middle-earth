@@ -40,7 +40,7 @@ const FeatureForm = (props: any) => {
     return (
         <Form.Item>
             <Form.Item
-                name="url"
+                name="feature"
                 label="Requested Feature"
                 rules={[{ required: true }]}
             >
@@ -54,7 +54,7 @@ const BugForm = (props: any) => {
     return (
         <Form.Item>
             <Form.Item
-                name="url"
+                name="bug"
                 label="Bug Description"
                 rules={[{ required: true }]}
             >
@@ -69,7 +69,7 @@ const GeneralForm = (props: any) => {
     return (
         <Form.Item>
             <Form.Item
-                name="url"
+                name="general"
                 label="General Feedback"
                 rules={[{ required: true }]}
             >
@@ -105,7 +105,7 @@ export const Feedback = (props: any) => {
     async function handleSubmit(values: any) {
         setLoading(true);
         log(values, 'green');
-        await publishMessage(values.toString());
+        await publishMessage(values);
         setLoading(false);
     }
 
@@ -122,7 +122,7 @@ export const Feedback = (props: any) => {
                         size={'large'}
                         onFinish={handleSubmit}
                     >
-                        <Form.Item className='formItem' label="Feedback Type">
+                        <Form.Item id="feedbackSelector" className='formItem' label="Feedback Type">
                             <Select
                                 defaultValue={'location'}
                                 onSelect={(choice: string) => setFeedbackChoice(choice)}

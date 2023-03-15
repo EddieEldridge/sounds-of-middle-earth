@@ -43,6 +43,7 @@ To build the project and run the dev server you can run
 - [The Golden Host](https://www.youtube.com/user/suprbroadwaygrl)
 - [LOTRO Soundtrack Collection](https://www.youtube.com/channel/UCjrlJLts89CTTqRD4B6vGxQ)
 - [Ambient Worlds](https://www.youtube.com/c/AmbientWorlds)
+- [MistyBee](https://mistybeee.com/)
 
 ## Technologies
 - React

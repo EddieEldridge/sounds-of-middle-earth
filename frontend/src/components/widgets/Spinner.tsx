@@ -1,5 +1,3 @@
-import React from 'react';
-
 export const LotrSpinner = (props: any) => {
     return (
         <div >

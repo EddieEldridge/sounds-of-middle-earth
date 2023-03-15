@@ -18,7 +18,7 @@ class App extends React.Component<Record<string, unknown>, undefined> {
                     <div id="content">
                         <Layout className="site-layout">
                             <Routes>
-                                <Route exact path='/' element={<LOTRMap/>} />
+                                <Route path='/' element={<LOTRMap/>} />
                                 <Route path='/map' element={<LOTRMap/>} />
                                 <Route path='/feedback' element={<Feedback/>} />
                                 <Route path='/source' element={<Source/>} />

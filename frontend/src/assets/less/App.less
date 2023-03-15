@@ -7,6 +7,10 @@
     url('../fonts/aniron.ttf') format('truetype')
 }
 
+body {
+  background-color: #c5b7a8;
+}
+
 // Main App
 .app {
   width: 100vh;
@@ -37,19 +41,30 @@
 }
 
 .marker-popup {
-  width: 50vw;
+  // max-width: 45vw;
+  width: 46vw;
   height: 50vh;
   filter: drop-shadow(2px 2px 2px #000000)
 }
 
 .leaflet-popup-content-wrapper {
-  background: black;
-  color: white;
-  filter: drop-shadow(2px 2px 2px #000000)
+  filter: drop-shadow(2px 2px 2px #000000);
+  border: 28px solid;
+  border-image-source: url(../img/panel.png);
+  border-image-slice: 100 fill;
+}
+
+.html5-video-container video {
+  filter: drop-shadow(5px 5px 5px #000000);
+}
+
+.leaflet-bottom {
+  display: none;
 }
 
 .lyt-activated {
-  width: 47vw;
+  width: 41vw;
+  max-width: 41vw;
   height: 47vh;
 }
 
@@ -69,7 +84,6 @@
   color: white;
   filter: drop-shadow(2px 2px 2px #000000)
 }
-
 
 // Side Bar
 #sideBar {
@@ -138,10 +152,3 @@
   width: 60px;
   height: 60px;
 }
-
-// .website-logo {
-//   height: 43px;
-//   margin: 16px;
-//   margin-top: 25px;
-//   filter: invert(100%);
-// }

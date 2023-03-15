@@ -22,8 +22,6 @@ export async function publishMessage(message: any) {
         } else {
             handleSuccessNotification('Feedback sent successfully! Thank you very much!');
         }
-
-        // log(response);
     } catch (error) {
         log(`Error publishing SNS message: ${error}`, 'red');
     }

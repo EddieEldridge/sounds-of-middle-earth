@@ -35,7 +35,6 @@ export const LOTRMap = (props: any) => {
         // Set the map bounds to the map size
         myMarkers.addTo(map);
         setMyMarkers(myMarkers);
-        // map.fitBounds(mapBounds);
 
         // Getting map co-ordinates on click
         const popup = L.popup();
@@ -60,9 +59,6 @@ export const LOTRMap = (props: any) => {
                 .openOn(map);
         }
         map.on('click', onMapClick);
-        map.on('click', () => {
-            console.log(map.getZoom());
-        });
     };
 
     const spinnerOverlay = () => {
@@ -141,6 +137,7 @@ export const LOTRMap = (props: any) => {
                                     keepInView={true}
                                 >
                                     <LiteYouTubeEmbed
+                                        poster="maxresdefault"
                                         id={marker.url}
                                         title={marker.name}
                                         autoplay={true}

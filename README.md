@@ -15,6 +15,8 @@
 ![](https://img.shields.io/github/stars/EddieEldridge/sounds-of-middle-earth?style=for-the-badge)
 
 ![image](https://user-images.githubusercontent.com/22448079/212663542-8e65c83e-d12b-45b0-9c0b-4c7929e4ca1c.png)
+![image](https://user-images.githubusercontent.com/22448079/225434857-316cb106-70b4-4851-b1b4-2cbc07d66a22.png)
+
 
 ## Build
 To build the project and run the dev server you can run

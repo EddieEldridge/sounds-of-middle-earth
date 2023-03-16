@@ -49,8 +49,6 @@ export const LOTRMap = (props: any) => {
                 roundedCoords.push(roundedCoord);
             });
 
-            console.log(cords);
-
             popup
                 .setLatLng(e.latlng)
                 .setContent(`

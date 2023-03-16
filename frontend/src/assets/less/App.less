@@ -41,7 +41,7 @@ body {
 }
 
 .marker-popup {
-  max-width: 45.5vw;
+  max-width: 43.5vw;
   width: 45.5vw;
   height: 50vh;
   filter: drop-shadow(2px 2px 2px #000000)
@@ -49,6 +49,7 @@ body {
 
 .leaflet-popup-content {
   margin: 0px 25px 0px 0px !important;
+  margin-left: 5px;
 }
 
 .leaflet-popup-content-wrapper {
@@ -69,7 +70,8 @@ body {
 
 .lyt-activated {
   width: 42.5vw;
-  max-width: 42.5vw;
+  max-width: 40.5vw;
+  min-width: 40.5vw;
   height: 47vh;
 }
 
@@ -156,4 +158,20 @@ body {
   transform: rotate(180deg);
   width: 60px;
   height: 60px;
+}
+
+#settings {
+  padding-top: 30vh;
+  -webkit-animation: glow 2s ease-in-out infinite alternate;
+  -moz-animation: glow 2s ease-in-out infinite alternate;
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 10px #c8bb00, 0 0 20px #c8bb00, 0 0 30px #9f8200, 0 0 40px #9f8200, 0 0 50px #9f8200, 0 0 60px #9f8200, 0 0 70px #9f8200;
+  }
+  to {
+    text-shadow: 0 0 20px #000000, 0 0 30px #c8bb00, 0 0 40px #c8bb00, 0 0 50px #c8bb00, 0 0 60px #c8bb00, 0 0 70px #c8bb00, 0 0 80px #c8bb00;
+  }
 }

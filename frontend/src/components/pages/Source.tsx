@@ -9,7 +9,9 @@ export const Source = (props: any) => {
             <Header className="header">Settings</Header>
             <div id="mapBackground" >
                 <Content className="content">
-                    <h2>Coming Soon</h2>
+                    <div id="settings">
+                        <h2>Coming Soon</h2>
+                    </div>
                 </Content>
             </div>
             <Footer className="footer"></Footer>

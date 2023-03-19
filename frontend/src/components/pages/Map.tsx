@@ -131,7 +131,7 @@ export const LOTRMap = (props: any) => {
                                 position={marker.location}
                             >
                                 <Popup
-                                    className='marker-popup'
+                                    className='video-popup'
                                     keepInView={true}
                                 >
                                     <LiteYouTubeEmbed

@@ -14,11 +14,6 @@ import { getMapLocation as getMapMarkers, getXyCoords, log } from '../../lib/uti
 import { MapLocation } from '../../lib/interfaces';
 
 const mapBounds: LatLngBoundsExpression = new LatLngBounds([0, 0], [MAP_Y, MAP_X]);
-const padding: LatLngBoundsExpression = new LatLngBounds([150, 150], [150, 150]);
-// const maxMapBounds: LatLngBoundsExpression = new LatLngBounds(
-//     [(MAP_Y/2), (MAP_X/2)],
-//     [MAP_Y+(MAP_Y/3),
-//         MAP_X+(MAP_X/3)]);
 
 export const LOTRMap = (props: any) => {
     const [mapIsLoaded, setMapIsLoaded] = useState(false);

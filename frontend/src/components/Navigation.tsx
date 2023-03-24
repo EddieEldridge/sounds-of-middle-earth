@@ -1,8 +1,9 @@
 
 import { Layout, Menu } from 'antd';
 import './../assets/less/App.less';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import * as ReactGA from 'react-ga';
 
 import { BookIcon, LetterIcon, MapIcon, SettingsIcon } from './../components/icons/CustomIcon';
 
@@ -40,22 +41,22 @@ export const Navigation = (props: any) => {
                     }
                 >
                     {/* The order of these items is flipped */}
-                    <Menu.Item key="credits" icon={<BookIcon />}>
+                    <Menu.Item key="credits" onClick={() =>ReactGA.pageview('/credits')} icon={<BookIcon />}>
                         <Link to="credits">
                         Credits
                         </Link>
                     </Menu.Item>
-                    <Menu.Item key="source" icon={<SettingsIcon />}>
+                    <Menu.Item key="source" onClick={() =>ReactGA.pageview('/settings')} icon={<SettingsIcon />}>
                         <Link to="source">
                         Settings
                         </Link>
                     </Menu.Item>
-                    <Menu.Item key="feedback" icon={<LetterIcon />}>
+                    <Menu.Item key="feedback" onClick={() =>ReactGA.pageview('/feedback')} icon={<LetterIcon />}>
                         <Link to="feedback">
                         Feedback
                         </Link>
                     </Menu.Item>
-                    <Menu.Item key="map" icon={<MapIcon />}>
+                    <Menu.Item key="map"  onClick={() =>ReactGA.pageview('/map')} icon={<MapIcon />}>
                         <Link to="map">
                         Map
                         </Link>

@@ -519,21 +519,27 @@
                 7025
             ]
         },
-                {
+        {
             "name": "The Greenhouse",
             "url": "F-ku_teaRkc",
             "location": [
                4560,1286
             ]
         },
-            {
+        {
             "name": "Misty Mountains Lodge",
             "url": "fbpiPITmEsc",
             "location": [
                3920,4364
             ]
+        },
+        {
+            "name": "Helm's Deep",
+            "url": "hyHsLp0Kj7Q",
+            "location": [
+               1876,4080
+            ]
         }
-        
 
     ]
 }

@@ -5,7 +5,7 @@
 </h1>
 
 <h2 align="center">
-  <p>An interactive map of Tolkien's Middle-earth that provides you the songs and sounds for over 50 particular regions.</p>
+  <p>An interactive map of Tolkien's Middle-earth that provides you the songs and sounds for over 50 regions and unique locations</p>
 </h1>
 
 ![](https://img.shields.io/circleci/build/github/EddieEldridge/sounds-of-middle-earth?style=for-the-badge)

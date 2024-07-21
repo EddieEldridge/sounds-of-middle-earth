@@ -2,9 +2,34 @@
 
 import { MapLocation } from './interfaces';
 import MapData from '../assets/json/MapData.json';
+import DaCMapData from '../assets/json/DaCMapData.json';
+import AGOMapData from '../assets/json/AGOMapData.json';
+import CreaperMapData from '../assets/json/CreaperMapData.json';
+import JaredMapData from '../assets/json/JaredBlandoMapData.json';
 
-export function getMapLocation(): MapLocation[] {
-    const jsonMapData: MapLocation[] = JSON.parse(JSON.stringify(MapData.locations));
+export function getMapLocation(mapType: string): MapLocation[] {
+    let jsonMapData: MapLocation[];
+
+    switch (mapType) {
+        case 'default':
+            jsonMapData = JSON.parse(JSON.stringify(MapData.locations));
+            break;
+        case 'siu_dac':
+            jsonMapData = JSON.parse(JSON.stringify(DaCMapData.locations));
+            break;
+        case 'siu_ago':
+            jsonMapData = JSON.parse(JSON.stringify(AGOMapData.locations));
+            break;
+        case 'creaperbox':
+            jsonMapData = JSON.parse(JSON.stringify(CreaperMapData.locations));
+            break;
+        case 'jared':
+            jsonMapData = JSON.parse(JSON.stringify(JaredMapData.locations));
+            break;
+        default:
+            jsonMapData = JSON.parse(JSON.stringify(MapData.locations));
+            break;
+    }
 
     return jsonMapData;
 }

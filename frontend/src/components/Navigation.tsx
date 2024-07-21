@@ -15,14 +15,13 @@ const collapseWidth = {
     ['min_width' as any]: '100px',
 };
 
-export const Navigation = (props: any) => {
+export const LeftNavigation = (props: any) => {
     const [collapsed, setCollapsed] = useState(true);
     const [selectedKeys, setSelectedKeys] = useState(['map']);
 
     return (
-        <div id="sideBar" className={collapsed ? 'collapsedSidebar' : 'sidebar'}>
+        <div id="leftSidebar" className={collapsed ? 'collapsedLeftSidebar' : 'leftSidebar'}>
             <Sider
-                reverseArrow={true}
                 collapsedWidth={90}
                 width={225}
                 collapsible
@@ -59,6 +58,57 @@ export const Navigation = (props: any) => {
                     <Menu.Item key="map"  onClick={() =>ReactGA.pageview('/map')} icon={<MapIcon />}>
                         <Link to="map">
                         Map
+                        </Link>
+                    </Menu.Item>
+                </Menu>
+            </Sider>
+        </div>
+    );
+};
+
+export const RightNavigation = (props: any) => {
+    const [collapsed, setCollapsed] = useState(true);
+    const [selectedKeys, setSelectedKeys] = useState(['map']);
+
+    return (
+        <div id="rightSidebar" className={collapsed ? 'collapsedRightSidebar' : 'rightSidebar'}>
+            <Sider
+                reverseArrow
+                collapsedWidth={90}
+                width={225}
+                collapsible
+                collapsed={collapsed}
+                onMouseOver={()=>setCollapsed(false)}
+                onMouseOut={()=>setCollapsed(true)}>
+                <Menu
+                    selectedKeys={selectedKeys}
+                    theme="dark"
+                    mode="inline"
+                    onClick={
+                        (menuItem) => {
+                            setSelectedKeys([menuItem.key]);
+                        }
+                    }
+                >
+                    {/* The order of these items is flipped */}
+                    <Menu.Item key="map"  onClick={() =>ReactGA.pageview('/map')} icon={<MapIcon />}>
+                        <Link to="map">
+                        MistyBee's
+                        </Link>
+                    </Menu.Item>
+                    <Menu.Item key="map"  onClick={() =>ReactGA.pageview('/map')} icon={<MapIcon />}>
+                        <Link to="map">
+                        MistyBee's
+                        </Link>
+                    </Menu.Item>
+                    <Menu.Item key="map"  onClick={() =>ReactGA.pageview('/map')} icon={<MapIcon />}>
+                        <Link to="map">
+                        MistyBee's
+                        </Link>
+                    </Menu.Item>
+                    <Menu.Item key="map"  onClick={() =>ReactGA.pageview('/map')} icon={<MapIcon />}>
+                        <Link to="map">
+                        MistyBee's
                         </Link>
                     </Menu.Item>
                 </Menu>

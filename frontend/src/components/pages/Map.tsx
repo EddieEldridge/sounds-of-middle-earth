@@ -1,3 +1,5 @@
+import * as util from 'util';
+
 import { ImageOverlay, MapContainer, Marker, Popup } from 'react-leaflet';
 import L, { CRS, LatLngBounds, LatLngBoundsExpression } from 'leaflet';
 import { useState } from 'react';
@@ -7,18 +9,75 @@ import LiteYouTubeEmbed from 'react-lite-youtube-embed';
 import 'react-lite-youtube-embed/dist/LiteYouTubeEmbed.css';
 
 
-import { MAP_URL, MAP_X, MAP_Y } from '../../lib/constants';
+import { AGO_MAP_URL, AGO_MAP_X, AGO_MAP_Y, CREAPER_MAP_URL, CREAPER_MAP_X, CREAPER_MAP_Y, DAC_MAP_URL, DAC_MAP_X, DAC_MAP_Y, JARED_MAP_URL, JARED_MAP_X, JARED_MAP_Y, MAP_URL, MAP_X, MAP_Y } from '../../lib/constants';
 import { iconLOTR } from '../widgets/Icon';
 import { LotrSpinner } from '../widgets/Spinner';
 import { getMapLocation as getMapMarkers, getXyCoords, log } from '../../lib/utils';
 import { MapLocation } from '../../lib/interfaces';
 
-const mapBounds: LatLngBoundsExpression = new LatLngBounds([0, 0], [MAP_Y, MAP_X]);
 
-export const LOTRMap = (props: any) => {
+interface mapProps {
+    mapType: string;
+}
+
+export const LOTRMap = (props: mapProps) => {
     const [mapIsLoaded, setMapIsLoaded] = useState(false);
     const [myMarkers, setMyMarkers] = useState(L.layerGroup());
-    const mapMarkers = getMapMarkers();
+    const mapMarkers = getMapMarkers(props.mapType);
+    let mapUrl = '';
+    let mapX = 0;
+    let mapY = 0;
+
+    switch (props.mapType) {
+        case 'default':
+            mapUrl = MAP_URL;
+            mapX = MAP_X;
+            mapY = MAP_Y;
+            break;
+        case 'siu_dac':
+            mapUrl = MAP_URL;
+            mapX = MAP_X;
+            mapY = MAP_Y;
+            break;
+        case 'siu_ago':
+            mapUrl = AGO_MAP_URL;
+            mapX = AGO_MAP_X;
+            mapY = AGO_MAP_Y;
+            break;
+        case 'creaperbox':
+            mapUrl = CREAPER_MAP_URL;
+            mapX = CREAPER_MAP_X;
+            mapY = CREAPER_MAP_Y;
+            break;
+        case 'jared':
+            mapUrl = JARED_MAP_URL;
+            mapX = JARED_MAP_X;
+            mapY = JARED_MAP_Y;
+            break;
+        default:
+            mapUrl = MAP_URL;
+            mapX = MAP_X;
+            mapY = MAP_Y;
+            break;
+    }
+
+    if (props.mapType === 'default') {
+        mapUrl = MAP_URL;
+        mapX = MAP_X;
+        mapY = MAP_Y;
+    }
+    else if (props.mapType === 'siu_dac') {
+        mapUrl = DAC_MAP_URL;
+        mapX = DAC_MAP_X;
+        mapY = DAC_MAP_Y;
+    } else {
+        mapUrl = MAP_URL;
+        mapX = MAP_X;
+        mapY = MAP_Y;
+    }
+
+    const mapBounds: LatLngBoundsExpression = new LatLngBounds([0, 0], [mapY, mapX]);
+
 
     const setMapReference = (map: L.Map) => {
         if (!map) {
@@ -35,6 +94,8 @@ export const LOTRMap = (props: any) => {
         const popup = L.popup();
 
         function onMapClick(e: { latlng: L.LatLngExpression }) {
+            console.info(mapBounds);
+
             const cords = getXyCoords(e.latlng.toString());
             const roundedCoords: number[] = [];
 
@@ -43,6 +104,9 @@ export const LOTRMap = (props: any) => {
 
                 roundedCoords.push(roundedCoord);
             });
+
+            require('child_process').spawn('clip').stdin.end(util.inspect(roundedCoords.toString()));
+
 
             popup
                 .setLatLng(e.latlng)
@@ -112,7 +176,7 @@ export const LOTRMap = (props: any) => {
                                 setMapIsLoaded(true);
                             }
                         }}
-                        url={MAP_URL}
+                        url={mapUrl}
                         bounds={mapBounds}
                         zIndex={-1}
                     />

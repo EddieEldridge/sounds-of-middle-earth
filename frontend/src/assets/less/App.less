@@ -89,8 +89,8 @@ body {
   filter: drop-shadow(2px 2px 2px #000000)
 }
 
-// Side Bar
-#sideBar {
+// Left Side Bar
+#leftSidebar {
   font-family: 'Aniron', sans-serif;
   position: absolute;
   z-index: 10;
@@ -100,16 +100,61 @@ body {
   filter: drop-shadow(5px 5px 30px black);
 }
 
-#sideBar a:hover{
+#leftSidebar a:hover{
   color: rgba(0, 0, 0, 0.647) !important;
 }
 
-#sideBar a {
+#leftSidebar a {
   color: black;
   font-weight: bolder;
   padding-left: 15px;
   font-size: 16px;
 }
+
+#leftSidebar img {
+  padding: 4px;
+  transform: rotate(180deg);
+  width: 60px;
+  height: 60px;
+}
+
+.leftSidebar span {
+  transform: rotate(180deg) !important;
+}
+// End Sidebar
+
+// Right Sidebar
+#rightSidebar {
+  font-family: 'Aniron', sans-serif;
+  position: absolute;
+  z-index: 10;
+  margin-top: 30vh;
+  margin-bottom: 10vh;
+  margin-left: 80vw;
+  // transform: rotate(180deg);
+  filter: drop-shadow(5px 5px 30px black);
+}
+
+#rightSidebar a:hover{
+  color: rgba(0, 0, 0, 0.647) !important;
+}
+
+#rightSidebar a {
+  color: black;
+  font-weight: bolder;
+  padding-right: 15px;
+  font-size: 16px;
+}
+
+#rightSidebar img {
+  padding: 4px;
+  // transform: rotate(180deg);
+  width: 60px;
+  height: 60px;
+}
+
+// End Right Sidebar
+
 
 .ant-menu-item {
   padding-left: 5px !important;
@@ -128,15 +173,6 @@ body {
   border-image-slice: 100 fill;
 }
 
-.collapsedSidebar span {
-  transform: rotate(180deg) !important;
-}
-
-.sidebar span {
-  transform: rotate(180deg) !important;
-}
-
-
 .ant-layout-sider-trigger {
   display: none;
 }
@@ -150,12 +186,6 @@ body {
   background-color: rgba(0, 0, 0, 0);
 }
 
-#sideBar img {
-  padding: 4px;
-  transform: rotate(180deg);
-  width: 60px;
-  height: 60px;
-}
 
 #settings {
   padding-top: 30vh;

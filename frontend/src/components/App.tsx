@@ -8,7 +8,7 @@ import { LOTRMap } from './pages/Map';
 import { Feedback } from './pages/Feedback';
 import { Source } from './pages/Source';
 import { Credits } from './pages/Credits';
-import { Navigation } from './Navigation';
+import { LeftNavigation, RightNavigation } from './Navigation';
 
 const TRACKING_ID = 'G-V2KZY1V4GN';
 
@@ -22,12 +22,13 @@ const App = () => {
     return (
         <div className="App">
             <Layout style={{ minHeight: '100vh' }}>
-                <Navigation/>
+                <LeftNavigation/>
+                <RightNavigation/>
                 <div id="content">
                     <Layout className="site-layout">
                         <Routes>
-                            <Route path='/' element={<LOTRMap/>} />
-                            <Route path='/map' element={<LOTRMap/>} />
+                            <Route path='/' element={<LOTRMap mapType='default'/>} />
+                            <Route path='/map' element={<LOTRMap mapType='default'/>} />
                             <Route path='/feedback' element={<Feedback/>} />
                             <Route path='/source' element={<Source/>} />
                             <Route path='/credits' element={<Credits/>} />

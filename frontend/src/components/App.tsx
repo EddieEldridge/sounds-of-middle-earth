@@ -26,8 +26,9 @@ const App = () => {
                 <div id="content">
                     <Layout className="site-layout">
                         <Routes>
-                            <Route path='/' element={<LOTRMap/>} />
-                            <Route path='/map' element={<LOTRMap/>} />
+                            <Route path='/' element={<LOTRMap version="new"/>} />
+                            <Route path='/map' element={<LOTRMap version="new"/>} />
+                            <Route path='/oldMap' element={<LOTRMap version="og"/>} />
                             <Route path='/feedback' element={<Feedback/>} />
                             <Route path='/source' element={<Source/>} />
                             <Route path='/credits' element={<Credits/>} />

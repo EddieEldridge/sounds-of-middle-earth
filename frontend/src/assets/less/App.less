@@ -164,11 +164,28 @@ body {
   animation: glow 2s ease-in-out infinite alternate;
 }
 
+.lotr-spinner {
+  animation: rotation 15s infinite linear;
+  max-width: 100%;
+  height: auto;
+  display: table;
+  margin: 0 auto;
+}
+
 @keyframes glow {
   from {
     text-shadow: 0 0 10px #c8bb00, 0 0 20px #c8bb00, 0 0 30px #9f8200, 0 0 40px #9f8200, 0 0 50px #9f8200, 0 0 60px #9f8200, 0 0 70px #9f8200;
   }
   to {
     text-shadow: 0 0 20px #000000, 0 0 30px #c8bb00, 0 0 40px #c8bb00, 0 0 50px #c8bb00, 0 0 60px #c8bb00, 0 0 70px #c8bb00, 0 0 80px #c8bb00;
+  }
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
   }
 }

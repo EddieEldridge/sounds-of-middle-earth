@@ -7,7 +7,7 @@ import LiteYouTubeEmbed from 'react-lite-youtube-embed';
 import 'react-lite-youtube-embed/dist/LiteYouTubeEmbed.css';
 
 
-import { MAP_URL, MAP_X, MAP_Y } from '../../lib/constants';
+import { OG_MAP_URL, NEW_MAP_URL, MAP_X, MAP_Y } from '../../lib/constants';
 import { iconLOTR } from '../widgets/Icon';
 import { LotrSpinner } from '../widgets/Spinner';
 import { getMapLocation as getMapMarkers, getXyCoords, log } from '../../lib/utils';
@@ -18,7 +18,14 @@ const mapBounds: LatLngBoundsExpression = new LatLngBounds([0, 0], [MAP_Y, MAP_X
 export const LOTRMap = (props: any) => {
     const [mapIsLoaded, setMapIsLoaded] = useState(false);
     const [myMarkers, setMyMarkers] = useState(L.layerGroup());
-    const mapMarkers = getMapMarkers();
+    const mapMarkers = getMapMarkers(props.version);
+    let MAP_URL = '';
+
+    if (props.version === 'og') {
+        MAP_URL = OG_MAP_URL;
+    } else {
+        MAP_URL = NEW_MAP_URL;
+    }
 
     const setMapReference = (map: L.Map) => {
         if (!map) {
@@ -77,7 +84,12 @@ export const LOTRMap = (props: any) => {
     //   }
 
     return (
+
         <div id='mapBackground'>
+            <LotrSpinner
+                mapIsLoaded = {mapIsLoaded}
+            />
+
             <div id="mapContainer">
                 <MapContainer
                     zoomControl={false}

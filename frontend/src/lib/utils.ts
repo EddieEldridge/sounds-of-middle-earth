@@ -1,10 +1,17 @@
 // import chalk from 'chalk';
 
 import { MapLocation } from './interfaces';
-import MapData from '../assets/json/MapData.json';
+import New_MapData from '../assets/json/New_MapData.json';
+import OG_MapData from '../assets/json/OG_MapData.json';
 
-export function getMapLocation(): MapLocation[] {
-    const jsonMapData: MapLocation[] = JSON.parse(JSON.stringify(MapData.locations));
+export function getMapLocation(version: string): MapLocation[] {
+    let jsonMapData: MapLocation[] = [];
+
+    if (version === 'og') {
+        jsonMapData = JSON.parse(JSON.stringify(New_MapData.locations));
+    } else {
+        jsonMapData = JSON.parse(JSON.stringify(OG_MapData.locations));
+    }
 
     return jsonMapData;
 }

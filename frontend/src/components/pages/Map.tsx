@@ -10,7 +10,7 @@ import 'react-lite-youtube-embed/dist/LiteYouTubeEmbed.css';
 import { OG_MAP_URL, NEW_MAP_URL, MAP_X, MAP_Y } from '../../lib/constants';
 import { iconLOTR } from '../widgets/Icon';
 import { LotrSpinner } from '../widgets/Spinner';
-import { getMapLocation as getMapMarkers, getXyCoords, log } from '../../lib/utils';
+import { getMapMarkers, getXyCoords, log } from '../../lib/utils';
 import { MapLocation } from '../../lib/interfaces';
 
 const mapBounds: LatLngBoundsExpression = new LatLngBounds([0, 0], [MAP_Y, MAP_X]);
@@ -135,6 +135,7 @@ export const LOTRMap = (props: any) => {
                                 alt={marker.name}
                                 riseOnHover={true}
                                 icon={iconLOTR}
+                                draggable={true}
                                 position={marker.location}
                             >
                                 <Popup

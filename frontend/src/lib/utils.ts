@@ -4,7 +4,7 @@ import { MapLocation } from './interfaces';
 import New_MapData from '../assets/json/New_MapData.json';
 import OG_MapData from '../assets/json/OG_MapData.json';
 
-export function getMapLocation(version: string): MapLocation[] {
+export function getMapMarkers(version: string): MapLocation[] {
     let jsonMapData: MapLocation[] = [];
 
     if (version === 'og') {

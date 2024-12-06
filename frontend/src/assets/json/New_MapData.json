@@ -137,8 +137,38 @@
     },
     {
       "name": "Isengard",
-      "url": "jVFCSMf4ECs",
+      "url": "nid5KCXqp-M",
       "location": [2826.3859448755397, 3501.9739951912616]
+    },
+    {
+      "name": "Near Harad",
+      "url": "K2oT3AEHtaU",
+      "location": [924, 4638]
+    },
+    {
+      "name": "Valinor",
+      "url": "iHI-MCHb-VQ",
+      "location": [3596, 512]
+    },
+    {
+      "name": "Anduin Vale (Sunrise)",
+      "url": "fevdQBAB224",
+      "location": [4206, 4224]
+    },
+    {
+      "name": "Gundabad",
+      "url": "vi_3qXpSzE8",
+      "location": [4796, 3936]
+    },
+    {
+      "name": "Beorn's Hall",
+      "url": "stRg2Zp2sL4",
+      "location": [4257, 4212]
+    },
+    {
+      "name": "Osgiliath",
+      "url": "GNfQquEuFSE",
+      "location": [1955, 4847]
     },
     {
       "name": "Fangorn",
@@ -191,9 +221,14 @@
       "location": [3466.2374413764564, 4702.260094890541]
     },
     {
-      "name": "Enedwaith",
+      "name": "Enedwaith (Music)",
       "url": "NcplkI2Z8Po",
       "location": [2827.0129111838173, 2827.0129111838173]
+    },
+    {
+      "name": "Enedwaith  (Ambience)",
+      "url": "WAPZsVg3Rj4",
+      "location": [3140, 3009]
     },
     {
       "name": "Dunland",
@@ -221,9 +256,19 @@
       "location": [2364.5581761050266, 4243.537441045628]
     },
     {
-      "name": "Anorien",
-      "url": "_131rsjY0Io",
+      "name": "Ithilien",
+      "url": "2DS-GnlUSJg",
       "location": [2126, 4864]
+    },
+    {
+      "name": "Khazad-dûm",
+      "url": "ZKPKmTISn7k",
+      "location": [3496, 3768]
+    },
+    {
+      "name": "Mirrowmere",
+      "url": "tCmhP_ZL2U",
+      "location": [3470, 3856]
     },
     {
       "name": "Harad",
@@ -354,6 +399,26 @@
       "name": "Rath Teraig",
       "url": "oH6OWjq56Dw",
       "location": [3585.0313806157965, 1958.6857838867368]
+    },
+    {
+      "name": "Dead Marshes",
+      "url": "GUD1hCDp4yM",
+      "location": [2429,4820]
+    },
+    {
+      "name": "Mordor",
+      "url": "dGYHaMeuKtY",
+      "location": [2293,5066]
+    },
+    {
+      "name": "Lindon",
+      "url": "x8GPWY8Okz8",
+      "location": [4008,1799]
+    },
+    {
+      "name": "Bilbo's Study",
+      "url": "HoAsuHnmdUg",
+      "location": [4096, 2305]
     }
   ]
 }

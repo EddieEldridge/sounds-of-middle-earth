@@ -1,6 +1,6 @@
 import { ImageOverlay, MapContainer, Marker, Popup } from 'react-leaflet';
 import L, { CRS, LatLngBounds, LatLngBoundsExpression } from 'leaflet';
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 import './../../assets/less/App.less';
 import LiteYouTubeEmbed from 'react-lite-youtube-embed';
 
@@ -10,17 +10,30 @@ import 'react-lite-youtube-embed/dist/LiteYouTubeEmbed.css';
 import { OG_MAP_URL, NEW_MAP_URL, MAP_X, MAP_Y } from '../../lib/constants';
 import { iconLOTR } from '../widgets/Icon';
 import { LotrSpinner } from '../widgets/Spinner';
-import { getMapMarkers, getXyCoords, log, setupMapMarkerExport } from '../../lib/utils';
+import { getMapMarkers, getXyCoords, log, } from '../../lib/utils';
 import { MapLocation } from '../../lib/interfaces';
 
 const mapBounds: LatLngBoundsExpression = new LatLngBounds([0, 0], [MAP_Y, MAP_X]);
 
-setupMapMarkerExport(getMapMarkers('new'));
+// Function to update marker position
+const updateMarkerPosition = (
+    mapMarkers: MapLocation[],
+    markerToUpdate: MapLocation,
+    newPosition: L.LatLngExpression
+): MapLocation[] => {
+    return mapMarkers.map(marker =>
+        marker === markerToUpdate
+            ? { ...marker, location: newPosition }
+            : marker
+    );
+};
 
 export const LOTRMap = (props: any) => {
     const [mapIsLoaded, setMapIsLoaded] = useState(false);
     const [myMarkers, setMyMarkers] = useState(L.layerGroup());
-    const mapMarkers = getMapMarkers(props.version);
+    const initialMarkers = getMapMarkers(props.version);
+    const [mapMarkers, setMapMarkers] = useState<MapLocation[]>(initialMarkers);
+
 
     let MAP_URL = '';
 
@@ -29,6 +42,36 @@ export const LOTRMap = (props: any) => {
     } else {
         MAP_URL = NEW_MAP_URL;
     }
+
+    const exportMapMarkers = () => {
+        const jsonOutput = {
+            locations: mapMarkers
+        };
+
+        const jsonString = JSON.stringify(jsonOutput, null, 2);
+        const blob = new Blob([jsonString], { type: 'application/json' });
+        const link = document.createElement('a');
+
+        link.href = URL.createObjectURL(blob);
+        link.download = 'map_markers.json';
+
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    };
+
+    const handleMarkerDrag = useCallback((marker: MapLocation) => {
+        return (event: L.DragEndEvent) => {
+            const newPosition = event.target.getLatLng();
+
+
+            log(newPosition.toString());
+
+            setMapMarkers(currentMarkers =>
+                updateMarkerPosition(currentMarkers, marker, [newPosition.lat, newPosition.lng])
+            );
+        };
+    }, []);
 
     const setMapReference = (map: L.Map) => {
         if (!map) {
@@ -92,6 +135,7 @@ export const LOTRMap = (props: any) => {
             />
 
             <div id="mapContainer">
+                <button onClick={exportMapMarkers}>Export Markers</button>
                 <MapContainer
                     zoomControl={false}
                     id="lotrMap"
@@ -101,13 +145,13 @@ export const LOTRMap = (props: any) => {
                     scrollWheelZoom={true}
                     zoomAnimation={true}
                     center={mapBounds.getCenter()}
-                    zoomSnap={0.2}
-                    zoomDelta={0.2}
-                    maxZoom={-0.5}
+                    // zoomSnap={0.5}
+                    zoomDelta={0.1}
+                    maxZoom={3}
                     minZoom={-3}
-                    zoom={-1}
-                    wheelDebounceTime={0.3}
-                    wheelPxPerZoomLevel={120}
+                    zoom={0.5}
+                    // wheelDebounceTime={0}
+                    // wheelPxPerZoomLevel={360}
                     ref={async (map) => {
                         if(map) {
                             setMapReference(map);
@@ -138,6 +182,9 @@ export const LOTRMap = (props: any) => {
                                 icon={iconLOTR}
                                 draggable={true}
                                 position={marker.location}
+                                eventHandlers={{
+                                    dragend: handleMarkerDrag(marker)
+                                }}
                             >
                                 <Popup
                                     className='video-popup'

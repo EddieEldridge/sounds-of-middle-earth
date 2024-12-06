@@ -1,5 +1,5 @@
 import { ImageOverlay, MapContainer, Marker, Popup } from 'react-leaflet';
-import L, { CRS, LatLngBounds, LatLngBoundsExpression } from 'leaflet';
+import L, { CRS, LatLng, LatLngBounds, LatLngBoundsExpression } from 'leaflet';
 import { useCallback, useState } from 'react';
 import './../../assets/less/App.less';
 import LiteYouTubeEmbed from 'react-lite-youtube-embed';
@@ -14,19 +14,8 @@ import { getMapMarkers, getXyCoords, log, } from '../../lib/utils';
 import { MapLocation } from '../../lib/interfaces';
 
 const mapBounds: LatLngBoundsExpression = new LatLngBounds([0, 0], [MAP_Y, MAP_X]);
-
-// Function to update marker position
-const updateMarkerPosition = (
-    mapMarkers: MapLocation[],
-    markerToUpdate: MapLocation,
-    newPosition: L.LatLngExpression
-): MapLocation[] => {
-    return mapMarkers.map(marker =>
-        marker === markerToUpdate
-            ? { ...marker, location: newPosition }
-            : marker
-    );
-};
+const mapCenter: LatLng = new LatLng(1953,4930);
+const defaultZoom = 0.1;
 
 export const LOTRMap = (props: any) => {
     const [mapIsLoaded, setMapIsLoaded] = useState(false);
@@ -42,6 +31,19 @@ export const LOTRMap = (props: any) => {
     } else {
         MAP_URL = NEW_MAP_URL;
     }
+
+    // Function to update marker position
+    const updateMarkerPosition = (
+        markers: MapLocation[],
+        markerToUpdate: MapLocation,
+        newPosition: L.LatLngExpression
+    ): MapLocation[] => {
+        return markers.map(marker =>
+            marker === markerToUpdate
+                ? { ...marker, location: newPosition }
+                : marker
+        );
+    };
 
     const exportMapMarkers = () => {
         const jsonOutput = {
@@ -135,23 +137,24 @@ export const LOTRMap = (props: any) => {
             />
 
             <div id="mapContainer">
-                <button onClick={exportMapMarkers}>Export Markers</button>
+                {/* <button onClick={exportMapMarkers}>Export Markers</button> */}
                 <MapContainer
                     zoomControl={false}
                     id="lotrMap"
+                    fadeAnimation={true}
                     bounds={mapBounds}
                     maxBounds={mapBounds}
                     maxBoundsViscosity={100}
                     scrollWheelZoom={true}
                     zoomAnimation={true}
-                    center={mapBounds.getCenter()}
-                    // zoomSnap={0.5}
+                    center={mapCenter}
+                    zoom={defaultZoom}
+                    zoomSnap={0.5}
                     zoomDelta={0.1}
                     maxZoom={3}
                     minZoom={-3}
-                    zoom={0.5}
-                    // wheelDebounceTime={0}
-                    // wheelPxPerZoomLevel={360}
+                    wheelDebounceTime={0}
+                    wheelPxPerZoomLevel={360}
                     ref={async (map) => {
                         if(map) {
                             setMapReference(map);
@@ -180,11 +183,11 @@ export const LOTRMap = (props: any) => {
                                 alt={marker.name}
                                 riseOnHover={true}
                                 icon={iconLOTR}
-                                draggable={true}
+                                // draggable={true}
                                 position={marker.location}
-                                eventHandlers={{
-                                    dragend: handleMarkerDrag(marker)
-                                }}
+                                // eventHandlers={{
+                                //     dragend: handleMarkerDrag(marker)
+                                // }}
                             >
                                 <Popup
                                     className='video-popup'

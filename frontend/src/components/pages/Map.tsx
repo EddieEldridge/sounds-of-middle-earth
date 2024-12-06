@@ -14,8 +14,8 @@ import { getMapMarkers, getXyCoords, log, } from '../../lib/utils';
 import { MapLocation } from '../../lib/interfaces';
 
 const mapBounds: LatLngBoundsExpression = new LatLngBounds([0, 0], [MAP_Y, MAP_X]);
-const mapCenter: LatLng = new LatLng(1953,4930);
-const defaultZoom = 0.1;
+const mapCenter: LatLng = new LatLng(2066,4268);
+const defaultZoom = -1;
 
 export const LOTRMap = (props: any) => {
     const [mapIsLoaded, setMapIsLoaded] = useState(false);

@@ -14,9 +14,9 @@
 ![](https://img.shields.io/github/issues/EddieEldridge/sounds-of-middle-earth?style=for-the-badge)
 ![](https://img.shields.io/github/stars/EddieEldridge/sounds-of-middle-earth?style=for-the-badge)
 
-![image](https://user-images.githubusercontent.com/22448079/212663542-8e65c83e-d12b-45b0-9c0b-4c7929e4ca1c.png)
-![image](https://user-images.githubusercontent.com/22448079/225434857-316cb106-70b4-4851-b1b4-2cbc07d66a22.png)
-![image](https://user-images.githubusercontent.com/22448079/225435149-a0aab723-0e12-47ae-be82-7b4b21148551.png)
+![image](https://i.imgur.com/ijzS4VG.png)
+![image](https://i.imgur.com/FfCxCCJ.png)
+![image](https://i.imgur.com/XTvkjhI.png)
 
 
 ## Build

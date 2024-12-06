@@ -10,15 +10,18 @@ import 'react-lite-youtube-embed/dist/LiteYouTubeEmbed.css';
 import { OG_MAP_URL, NEW_MAP_URL, MAP_X, MAP_Y } from '../../lib/constants';
 import { iconLOTR } from '../widgets/Icon';
 import { LotrSpinner } from '../widgets/Spinner';
-import { getMapMarkers, getXyCoords, log } from '../../lib/utils';
+import { getMapMarkers, getXyCoords, log, setupMapMarkerExport } from '../../lib/utils';
 import { MapLocation } from '../../lib/interfaces';
 
 const mapBounds: LatLngBoundsExpression = new LatLngBounds([0, 0], [MAP_Y, MAP_X]);
+
+setupMapMarkerExport(getMapMarkers('new'));
 
 export const LOTRMap = (props: any) => {
     const [mapIsLoaded, setMapIsLoaded] = useState(false);
     const [myMarkers, setMyMarkers] = useState(L.layerGroup());
     const mapMarkers = getMapMarkers(props.version);
+
     let MAP_URL = '';
 
     if (props.version === 'og') {
@@ -46,9 +49,7 @@ export const LOTRMap = (props: any) => {
             const roundedCoords: number[] = [];
 
             cords.forEach(element => {
-                const roundedCoord = Math.round(parseInt(element, 10));
-
-                roundedCoords.push(roundedCoord);
+                roundedCoords.push(Math.round(parseInt(element, 10)));
             });
 
             popup

@@ -139,6 +139,7 @@ export const LOTRMap = (props: any) => {
             <div id="mapContainer">
                 {/* <button onClick={exportMapMarkers}>Export Markers</button> */}
                 <MapContainer
+                    preferCanvas={true}
                     zoomControl={false}
                     id="lotrMap"
                     fadeAnimation={true}
